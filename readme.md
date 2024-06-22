@@ -23,6 +23,10 @@
    > The 3 commands can be used.
    - Quickly insert a template by executing a shortcut while editing a block.
 
+## Demo
+
+![Default Template プラグイン](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/26771e35-5cc3-4d3a-9299-5f1d733c7782)
+
 ---
 
 ## Getting Started
@@ -42,7 +46,7 @@
    > ![how to](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/45b90eee-db06-4f4b-87f7-895341960f71)
 1. Create a sub block in the block and put the test message there.
 
-   > ![how to](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/9f3aa77f-a47e-4c60-8c78-cdd3feef41b5)
+   > ![how to](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/7a960c3b-05ee-402c-90e0-9f15c3cd8cfb)
 1. In the plugin settings, enter a template name.
    > Note: Enter the template name correctly.
    
