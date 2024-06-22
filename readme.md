@@ -18,7 +18,7 @@
    - Apply template if only the first block is present when the page is opened and it is empty
 1. (1-a) **Advanced Default Template** Feature
    - Insert a template based on the page title conditions.
-     > With a page with a specific parent or with a specific string
+     > With a page with a specific hierarchy or with a specific string
 1. Command Pallet Items: "Insert Template" **Shortcut**
    > The 3 commands can be used.
    - Quickly insert a template by executing a shortcut while editing a block.
