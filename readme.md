@@ -31,6 +31,8 @@
 
 - Press [`---`] on the top right toolbar to open [`Plugins`]. Select marketplace. Type `Default` in the search field, select it from the search results and install
 
+  > ![スクリーンショット 2024-06-22 162128](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/54b4ad6a-ef65-4ef6-b6ba-cd628be241ea)
+
 ### Usage
 
 #### How to make an initial check
