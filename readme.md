@@ -46,7 +46,7 @@
 1. In the plugin settings, enter a template name.
    > Note: Enter the template name correctly.
    
-   > ![image](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/38732cb3-e562-43c7-a899-c537682d66f0)
+   > ![image](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/dbc697c7-f205-4073-88ca-f875ee950d1e)
 1. Open a new page.
 1. If it is applied, it is successful.
 
