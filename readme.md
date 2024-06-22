@@ -38,7 +38,7 @@
 #### How to make an initial check
 
 1. *Create a template block* for the default somewhere on the page in the usual Logseq way.
-   > Create a sub block in the block and put the test message there.
+1. Create a sub block in the block and put the test message there.
 1. In the plugin settings, enter a template name.
    > Note: Enter the template name correctly.
 1. Open a new page.
