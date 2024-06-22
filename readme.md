@@ -44,6 +44,10 @@
 1. Open a new page.
 1. If it is applied, it is successful.
 
+### Note
+
+- This applies even if open an existing page and there is only the first block and that block is empty.
+
 ---
 
 ## Showcase / Questions / Ideas / Help
