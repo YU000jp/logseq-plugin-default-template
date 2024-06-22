@@ -61,6 +61,8 @@
 - プラグイン設定は、グラフごとに用意されています。
 - [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions)にて、この種の書き込みがないか確認してください。無ければ、新たに書き込みをしてください。
 - このプラグインは、将来のLogseqコアのアップデートにより機能しなくなったり、不要になる可能性があります。
+- 関連
+  1. [More journal templates プラグイン](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 
 ## クレジット
 
