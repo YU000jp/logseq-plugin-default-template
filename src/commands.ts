@@ -9,48 +9,42 @@ const msgId = "SlashCommand (logseq-plugin-default-template)"
 let processing = false
 
 export const addCommandPaletteCommands = () => {
+
   logseq.App.registerCommandPalette({
     key: "insertTemplateFirst",
     label: t("Insert Template") + " " + t("The First"),
     keybinding: { binding: [] },
-  }, async () => {
-    const currentGraphName = await getCurrentGraph()
-    const templateName = logseq.settings![currentGraphName + "/templateFirst"] as string
-    command(templateName) // テンプレート名
-    console.log(`${currentGraphName + "/templateFirst"}`, templateName)
-  })
+  }, async () =>
+    command("First"))
+
   logseq.App.registerCommandPalette({
     key: "insertTemplateSecond",
     label: t("Insert Template") + " " + t("The Second"),
     keybinding: { binding: [] },
-  }, async () => {
-    const currentGraphName = await getCurrentGraph()
-    const templateName = logseq.settings![currentGraphName + "/templateSecond"] as string
-    command(templateName) // テンプレート名
-    console.log(`${currentGraphName + "/templateSecond"}`, templateName)
-  })
+  }, async () =>
+    command("Second"))
+
   logseq.App.registerCommandPalette({
     key: "insertTemplateThird",
     label: t("Insert Template") + " " + t("The Third"),
     keybinding: { binding: [] },
-  }, async () => {
-    const currentGraphName = await getCurrentGraph()
-    const templateName = logseq.settings![currentGraphName + "/templateThird"] as string
-    command(templateName) // テンプレート名
-    console.log(`${currentGraphName + "/templateThird"}`, templateName)
-  })
+  }, async () =>
+    command("Third"))
 }
 
 
-const command = async (templateName: string) => {
+const command = async (commandNumber: string) => {
   if (processing) return
   setTimeout(() => { processing = false }, 2000)
   processing = true
 
+  const templateName = logseq.settings![(await getCurrentGraph()) + "/template" + commandNumber] as string
   if (templateName === "") {
     msgWarn(t("Template is not set."), msgId) // テンプレートが設定されていない場合は警告を表示
     return
   }
+  //コマンドが実行されたことをログに出力
+  console.log(`Command: Insert Template ${commandNumber}`, templateName)
 
   await logseq.Editor.restoreEditingCursor() // 編集中のブロックを取得
 
