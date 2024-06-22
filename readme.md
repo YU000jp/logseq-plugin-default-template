@@ -46,7 +46,7 @@
 
 ### Note
 
-- This applies even if open an existing page and there is only the first block and that block is empty.
+- It applies to existing pages that are not used at all. If a page is opened with only the first block and that block is empty, a template will be applied.
 
 ---
 
