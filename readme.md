@@ -44,10 +44,6 @@
 1. Open a new page.
 1. If it is applied, it is successful.
 
-### Note
-
-- It applies to existing pages that are not used at all. If a page is opened with only the first block and that block is empty, a template will be applied.
-
 ---
 
 ## Showcase / Questions / Ideas / Help
