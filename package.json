@@ -1,12 +1,12 @@
 {
-    "name": "logseq-plugin-template-typescript",
+    "name": "logseq-plugin-default-template",
     "description": "",
-    "repository": "https://github.com/YU000jp/logseq-plugin-template-typescript.git",
+    "repository": "https://github.com/YU000jp/logseq-plugin-default-template.git",
     "author": "YU000jp",
     "license": "MIT",
     "logseq": {
-        "id": "logseq-plugin-template-typescript",
-        "title": "Template TypeScript",
+        "id": "logseq-plugin-default-template",
+        "title": "Default Template for New Page",
         "icon": "./icon.svg",
         "main": "./dist/index.html"
     },
