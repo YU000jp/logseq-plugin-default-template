@@ -23,6 +23,10 @@
    > 3つまでカスタムコマンドが使えます。
    - ブロック編集中にショートカットを実行することで、素早くテンプレートを挿入できます。
 
+## 動作デモ
+
+![Default Template プラグイン日本語](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/31f17b79-3b20-440a-b69f-133748476c73)
+
 ---
 
 ## はじめに
