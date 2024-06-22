@@ -1,4 +1,4 @@
-# Logseq プラグイン: Default Template for New Page
+# Logseq プラグイン: Default Template (for New Page)
 
 [English](https://github.com/YU000jp/logseq-plugin-default-template) | [日本語](https://github.com/YU000jp/logseq-plugin-default-template/blob/main/readme.ja.md)
 

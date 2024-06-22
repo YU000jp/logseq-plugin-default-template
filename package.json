@@ -6,7 +6,7 @@
     "license": "MIT",
     "logseq": {
         "id": "logseq-plugin-default-template",
-        "title": "Default Template for New Page",
+        "title": "Default Template (for New Page)",
         "icon": "./icon.svg",
         "main": "./dist/index.html"
     },
