@@ -38,9 +38,15 @@
 #### 初回チェックの方法
 
 1. 通常のLogseqの方法で、どこかのページに、デフォルト用の*テンプレートブロックを作成*します。
+
+   > ![how to](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/6b84f498-1573-4f7e-9812-be7fa818981f)
 1. そのブロックの中にサブブロックを作り、そこにテストメッセージを置きます。
+
+   > ![image](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/6a84a83b-a62e-49bd-8303-ac1599228c54)
 1. プラグインの設定で、テンプレート名を入力します。
    > 注：テンプレート名は正確に入力してください。
+
+   > ![image](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/e39d4775-b6e3-497c-9f19-3beb378cc648)
 1. 新しいページを開きます。
 1. 適用されれば成功です。
 
