@@ -59,6 +59,7 @@
 ## Showcase / Questions / Ideas / Help
 
 - Note: The plugin settings are provided for each graph.
+- Note: If the user has not set up a journal template, it will be applied when the journal single page is opened.
 - Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions) tab to ask and find this kind of things.
 - This plugin may no longer work or may become unnecessary due to future updates to the Logseq core.
 - Related
