@@ -61,6 +61,8 @@
 - Note: The plugin settings are provided for each graph.
 - Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions) tab to ask and find this kind of things.
 - This plugin may no longer work or may become unnecessary due to future updates to the Logseq core.
+- Related
+  1. [More journal templates plugin](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 
 ## Credit
 
