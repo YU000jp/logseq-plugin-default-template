@@ -1,18 +1,28 @@
-# Logseq Plugin: Template for TypeScript
+# Logseq Plugin: Default Template for New Page
 
 - Not published yet 👷🚧
 
-> [Release](https://github.com/YU000jp/logseq-plugin-template-typescript/releases) information is on the right. Load files at developer mode.
+> [Release](https://github.com/YU000jp/logseq-plugin-default-template/releases) information is on the right. Load files at developer mode.
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
-[![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-template-typescript)](https://github.com/YU000jp/logseq-plugin-template-typescript/releases)
-[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-template-typescript/total.svg)](https://github.com/YU000jp/logseq-plugin-template-typescript/releases)
-<!-- Published 2023 -->
+[![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-default-template)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
+[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-default-template/total.svg)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
+<!-- Published 2024 -->
 
 ---
 
-## Options
+## Feature Options
+
+1. Default Template Feature
+  > Main function. Try this at the beginning.
+  - Apply template if only the first block is present when the page is opened and it is empty
+1. (1-a) Advanced Default Template Feature
+  - Apply the specified template to a page with a specific parent or with a specific string
+  - Insert a template based on the page title conditions.
+1. Command Pallet Items: "Insert Template" Shortcut
+  > The 3 commands can be used.
+  - Quickly insert a template by executing a shortcut while editing a block.
 
 ---
 
@@ -20,21 +30,30 @@
 
 ### Install from Logseq Marketplace (Coming👷🚧)
 
-- Press [`---`] on the top right toolbar to open [`Plugins`]. Select marketplace. Type `WORD` in the search field, select it from the search results and install
+- Press [`---`] on the top right toolbar to open [`Plugins`]. Select marketplace. Type `Default` in the search field, select it from the search results and install
 
 ### Usage
+
+#### How to make an initial check
+
+1. Create a template block for the default somewhere on the page in the usual Logseq way.
+  > Create a sub block in the block and put the test message there.
+1. In the plugin settings, enter a template name.
+  > Note: Enter the template name correctly.
+1. Open a new page.
+1. If it is applied, it is successful.
 
 ---
 
 ## Showcase / Questions / Ideas / Help
 
-> Go to the [discussion](https://github.com/YU000jp/logseq-plugin-template-typescript/discussions) tab to ask and find this kind of things.
+> Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions) tab to ask and find this kind of things.
 
-1. This plugin relies on Logseq's DOM (Document Object Model) structure. If the DOM structure changes due to a Logseq version update, styles may not be applied. We will adjust the CSS to deal with it. If you notice something, please raise an issue.
+1. This plugin may no longer work or may become unnecessary due to future updates to the Logseq core.
 
 ## Prior art & Credit
 
-Icon > [icooon-mono.com](https://icooon-mono.com/)
+Icon > [icooon-mono.com](https://icooon-mono.com/11304-%e3%82%a2%e3%83%b3%e3%82%b1%e3%83%bc%e3%83%88%e7%94%a8%e7%b4%99%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e7%b4%a0%e6%9d%90/)
 
 Author > [@YU000jp](https://github.com/YU000jp)
 

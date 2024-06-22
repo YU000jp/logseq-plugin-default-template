@@ -1,6 +1,6 @@
 {
     "name": "logseq-plugin-default-template",
-    "description": "",
+    "description": "Automatically a insert template when creating a page",
     "repository": "https://github.com/YU000jp/logseq-plugin-default-template.git",
     "author": "YU000jp",
     "license": "MIT",

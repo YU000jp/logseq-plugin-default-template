@@ -26,7 +26,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         type: "heading",
         default: null,
         title: `1-a. ${t("Advanced Default Template Feature")}`,
-        // 特定の条件で、テンプレートを挿入する。こちらが有効にされている場合は、上の項目が無効になります。
+        // 特定の条件で、テンプレートを挿入する。
         // 複数にマッチした場合は、最初にマッチしたものが適用されます。
         // 空欄であれば、無効になります。
         // 複数指定する場合は、改行区切りで記述してください。
