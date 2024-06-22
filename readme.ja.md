@@ -1,13 +1,13 @@
 # Logseq プラグイン: Default Template (for New Page)
 
-[English](https://github.com/YU000jp/logseq-plugin-default-template) | [日本語](https://github.com/YU000jp/logseq-plugin-default-template/blob/main/readme.ja.md)
+- ページテンプレートを自動的に適用します。
 
-- まだ公開されていません👷🚧。
-  > [リリース](https://github.com/YU000jp/logseq-plugin-default-template/releases)の情報は右側にあります。(開発者モードでファイルを読み込む)
+<div align="right">
 
-[![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-default-template)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
-[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-default-template/total.svg)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
-<!-- 2024年発行 -->
+[English](https://github.com/YU000jp/logseq-plugin-default-template) | [日本語](https://github.com/YU000jp/logseq-plugin-default-template/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-default-template)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
+[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-default-template/total.svg)](https://github.com/YU000jp/logseq-plugin-default-template/releases) Published 20240622
+
+</div>
 
 ---
 
@@ -31,7 +31,7 @@
 
 ## はじめに
 
-### Logseqマーケットプレースからインストール (もうじき公開👷)
+### Logseqマーケットプレースからインストール
 
 - 右上のツールバーの[`---`]を押して[`プラグイン`]を開き、マーケットプレイスを選択します。検索フィールドに `Default` と入力し、検索結果から選択してインストールします。
 
