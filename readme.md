@@ -5,8 +5,8 @@
 <div align="right">
 
 [English](https://github.com/YU000jp/logseq-plugin-default-template) | [日本語](https://github.com/YU000jp/logseq-plugin-default-template/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-default-template)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
-[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-default-template/total.svg)](https://github.com/YU000jp/logseq-plugin-default-template/releases) Published 20240622
-
+[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-default-template/total.svg)](https://github.com/YU000jp/logseq-plugin-default-template/releases) Published 20240622 
+<a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
 </div>
 
 ---
@@ -66,5 +66,3 @@
 
 - Icon > [icooon-mono.com](https://icooon-mono.com/11304-%e3%82%a2%e3%83%b3%e3%82%b1%e3%83%bc%e3%83%88%e7%94%a8%e7%b4%99%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e7%b4%a0%e6%9d%90/)
 - Author > [@YU000jp](https://github.com/YU000jp)
-
-<a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
