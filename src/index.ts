@@ -94,25 +94,36 @@ const whenCreateNewPage = () => {
         if (currentPageEntity["journal?"] === true) {
           // 日記のシングルページの場合
           console.log("journal page: " + currentPageEntity.originalName)
-          InsertTemplateForJournal(block.uuid)
-          return
+          const journalTemplate = logseq.settings![currentGraphName + "/journalTemplateName"] as string
+          const checkUserSettings: boolean = await checkTemplateNameForJournal(journalTemplate) // テンプレート名が設定されているか、そのテンプレート名が有効かどうかチェック
+          if (checkUserSettings === false)
+            return // チェックによって処理を中断
+          await insertTemplateAndRemoveBlock(block.uuid, journalTemplate)// テンプレートを挿入
+
+        } else {
+          // ジャーナル属性でない場合
+
+          if (logseq.settings![currentGraphName + "/advancedStartWith"] !== ""
+            || logseq.settings![currentGraphName + "/advancedContain"] !== ""
+            || logseq.settings![currentGraphName + "/advancedEndWith"] !== "") {
+
+            // Advanced Default Templateが設定されている場合
+            advancedDefaultTemplate(block.uuid, currentPageEntity.originalName)
+
+          } else
+            // Advanced Default Templateが設定されていない場合
+            defaultTemplate(block.uuid)
         }
-
-        if (logseq.settings![currentGraphName + "/advancedStartWith"] !== ""
-          || logseq.settings![currentGraphName + "/advancedContain"] !== ""
-          || logseq.settings![currentGraphName + "/advancedEndWith"] !== "") {
-
-          // Advanced Default Templateが設定されている場合
-          advancedDefaultTemplate(block.uuid, currentPageEntity.originalName)
-
-        } else
-          // Advanced Default Templateが設定されていない場合
-          defaultTemplate(block.uuid)
       } else
         console.log("blockTree[0].content is not empty or nil. Skip processing.")
     } else
-      if (blockTree.length === 0) {
+      if (blockTree.length === 0) { // ブロックがない場合
         console.warn("blockTree.length is 0.")
+
+        const journalTemplate = logseq.settings![currentGraphName + "/journalTemplateName"] as string
+        const checkUserSettings: boolean = await checkTemplateNameForJournal(journalTemplate) // テンプレート名が設定されているか、そのテンプレート名が有効かどうかチェック
+        if (checkUserSettings === false)
+          return // チェックによって処理を中断
 
         // ジャーナル属性の場合は、続行する
         const currentPageEntity = await logseq.Editor.getCurrentPage() as { uuid: PageEntity["uuid"], originalName: PageEntity["originalName"], journal?: PageEntity["journal?"] } | null
@@ -125,7 +136,7 @@ const whenCreateNewPage = () => {
           if (newBlockEntity === null)
             return console.warn("newBlockEntity is null" + currentPageEntity.originalName)
           else
-            InsertTemplateForJournal(newBlockEntity.uuid) // 作成したブロックにテンプレートを挿入
+            await insertTemplateAndRemoveBlock(newBlockEntity.uuid, journalTemplate) // 作成したブロックにテンプレートを挿入
         } else {
           // ジャーナル属性でない場合は、設定によりブロックを追加する
           
@@ -135,21 +146,20 @@ const whenCreateNewPage = () => {
   }, 800) // 0.8秒後に遅延実行 ※WeeklyJournalなどのほかのプラグイン対策
 }
 
-const InsertTemplateForJournal = async (blockUuid: BlockEntity["uuid"]) => {
-  // ジャーナルテンプレートの補完機能
-  const journalTemplate = logseq.settings![currentGraphName + "/journalTemplateName"] as string
-  // テンプレートが設定されていない場合は処理しない
-  if (journalTemplate === "")
-    // 何もしない
-    console.log("journalTemplate is empty (Completion of journal template)")
-  else {
+const checkTemplateNameForJournal = async (journalTemplate: string): Promise<boolean> => {
+  // テンプレート名が設定されていない場合は処理しない
+  if (journalTemplate === "") {
+    console.warn("journalTemplate is empty (Completion of journal template)")
+    return false
+  } else {
     if (await logseq.App.existTemplate(journalTemplate) === false) {// テンプレートが存在しない場合は処理しない
       msgWarn(t("Template not found."), "(Completion of journal template)") // 警告を表示
-      return
+      return false
     }
-    await insertTemplateAndRemoveBlock(blockUuid, journalTemplate)// テンプレートを挿入
+    return true
   }
 }
+
 
 export const defaultTemplate = async (blockUuid: BlockEntity["uuid"]) => {
   // テンプレートが設定されていない場合は処理しない
