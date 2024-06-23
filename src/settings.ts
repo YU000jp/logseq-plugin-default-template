@@ -4,6 +4,28 @@ import { t } from 'logseq-l10n'
 /* user setting */
 // https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
+/* */
+    { // 共通設定
+        key: "header0000",
+        type: "heading",
+        default: null,
+        title: `0. ${t("Common Settings")}`,
+        description: "",
+    },
+    { // 既存のページを開いたときに、ブロックが0の場合に、テンプレートを挿入するかどうか
+        key: "insertTemplateIfPageEmpty",
+        type: "boolean",
+        default: false,
+        // 既存ページのデフォルトテンプレートを有効にする
+        title: t("Enable Default Template for existing pages"),
+        // 新規作成の場合は、ひとつ目のブロックにカーソルが置かれるが、既存のページを開いたときは、そうではない。
+        // 既存のページに対しても、デフォルトテンプレートを適用したい場合は、この設定を有効にする。
+        description: `
+        ${t("When creating a new page, the cursor is placed on the first block, but not when opening an existing page.")}
+        ${t("Enable this setting if you wish to apply the default template to existing pages as well.")}
+        `,
+    },
+/* */
     { //デフォルトテンプレート
         key: "header0010",
         type: "heading",

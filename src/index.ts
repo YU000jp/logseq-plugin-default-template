@@ -125,22 +125,26 @@ const whenCreateNewPage = () => {
         if (checkUserSettings === false)
           return // チェックによって処理を中断
 
-        // ジャーナル属性の場合は、続行する
         const currentPageEntity = await logseq.Editor.getCurrentPage() as { uuid: PageEntity["uuid"], originalName: PageEntity["originalName"], journal?: PageEntity["journal?"] } | null
         if (currentPageEntity === null)
           return console.warn("currentPageEntity is null")
-        if (currentPageEntity["journal?"] === true) {
-          // 日記のシングルページの場合は、強制的にテンプレートを挿入する
-          console.log("journal page (no block): " + currentPageEntity.originalName)
+
+        if (currentPageEntity["journal?"] === true // ジャーナル属性の場合は、続行する (日記のシングルページの場合は、強制的にテンプレートを挿入する)
+          || logseq.settings!.insertTemplateIfPageEmpty as boolean === true // ジャーナル属性でない場合は、ユーザー設定によりブロックを追加する
+        ) {
+          console.log("no block page: " + currentPageEntity.originalName)
           const newBlockEntity = await logseq.Editor.appendBlockInPage(currentPageEntity.uuid, "") as { uuid: BlockEntity["uuid"] } | null // 空のブロックを追加
           if (newBlockEntity === null)
             return console.warn("newBlockEntity is null" + currentPageEntity.originalName)
           else
             await insertTemplateAndRemoveBlock(newBlockEntity.uuid, journalTemplate) // 作成したブロックにテンプレートを挿入
-        } else {
-          // ジャーナル属性でない場合は、設定によりブロックを追加する
-          
-        }
+
+        } else
+          // ジャーナル属性でなく、ユーザー設定によりブロックを追加しない場合は何もしない
+          console.log("no block page: " + currentPageEntity.originalName + " (not journal) (user setting is false)")
+
+      } else {
+        // 複数行の場合は何も処理しない
 
       }
   }, 800) // 0.8秒後に遅延実行 ※WeeklyJournalなどのほかのプラグイン対策
