@@ -91,21 +91,10 @@ const whenCreateNewPage = () => {
         if (currentPageEntity === null)
           return console.warn("currentPageEntity is null")
 
-        if (currentPageEntity.journal) {
+        if (currentPageEntity["journal?"] === true) {
           // 日記のシングルページの場合
-          // ジャーナルテンプレートの補完機能
-          const journalTemplate = logseq.settings![currentGraphName + "/journalTemplateName"] as string
-          // テンプレートが設定されていない場合は処理しない
-          if (journalTemplate === "")
-            // 何もしない
-            console.log("journalTemplate is empty (Completion of journal template)")
-          else {
-            if (await logseq.App.existTemplate(journalTemplate) === false) {// テンプレートが存在しない場合は処理しない
-              msgWarn(t("Template not found."), "(Completion of journal template)") // 警告を表示
-              return
-            }
-            await insertTemplateAndRemoveBlock(block.uuid, journalTemplate)// テンプレートを挿入
-          }
+          console.log("journal page: " + currentPageEntity.originalName)
+          InsertTemplateForJournal(block.uuid)
           return
         }
 
@@ -119,9 +108,47 @@ const whenCreateNewPage = () => {
         } else
           // Advanced Default Templateが設定されていない場合
           defaultTemplate(block.uuid)
+      } else
+        console.log("blockTree[0].content is not empty or nil. Skip processing.")
+    } else
+      if (blockTree.length === 0) {
+        console.warn("blockTree.length is 0.")
+
+        // ジャーナル属性の場合は、続行する
+        const currentPageEntity = await logseq.Editor.getCurrentPage() as { uuid: PageEntity["uuid"], originalName: PageEntity["originalName"], journal?: PageEntity["journal?"] } | null
+        if (currentPageEntity === null)
+          return console.warn("currentPageEntity is null")
+        if (currentPageEntity["journal?"] === true) {
+          // 日記のシングルページの場合は、強制的にテンプレートを挿入する
+          console.log("journal page (no block): " + currentPageEntity.originalName)
+          const newBlockEntity = await logseq.Editor.appendBlockInPage(currentPageEntity.uuid, "") as { uuid: BlockEntity["uuid"] } | null // 空のブロックを追加
+          if (newBlockEntity === null)
+            return console.warn("newBlockEntity is null" + currentPageEntity.originalName)
+          else
+            InsertTemplateForJournal(newBlockEntity.uuid) // 作成したブロックにテンプレートを挿入
+        } else {
+          // ジャーナル属性でない場合は、設定によりブロックを追加する
+          
+        }
+
       }
-    }
   }, 800) // 0.8秒後に遅延実行 ※WeeklyJournalなどのほかのプラグイン対策
+}
+
+const InsertTemplateForJournal = async (blockUuid: BlockEntity["uuid"]) => {
+  // ジャーナルテンプレートの補完機能
+  const journalTemplate = logseq.settings![currentGraphName + "/journalTemplateName"] as string
+  // テンプレートが設定されていない場合は処理しない
+  if (journalTemplate === "")
+    // 何もしない
+    console.log("journalTemplate is empty (Completion of journal template)")
+  else {
+    if (await logseq.App.existTemplate(journalTemplate) === false) {// テンプレートが存在しない場合は処理しない
+      msgWarn(t("Template not found."), "(Completion of journal template)") // 警告を表示
+      return
+    }
+    await insertTemplateAndRemoveBlock(blockUuid, journalTemplate)// テンプレートを挿入
+  }
 }
 
 export const defaultTemplate = async (blockUuid: BlockEntity["uuid"]) => {
