@@ -65,6 +65,7 @@
   1. [More journal templates プラグイン](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions)にて、この種の書き込みがないか確認してください。無ければ、新たに書き込みをしてください。
 - このプラグインは、将来のLogseqコアのアップデートにより機能しなくなったり、不要になる可能性があります。
+- 既存の各プラグイン [Full House Templates](https://github.com/stdword/logseq13-full-house-plugin)、[powerblocks](https://github.com/hkgnp/logseq-powerblocks-plugin)、[SmartBlocks](https://github.com/sawhney17/logseq-smartblocks)、[Side Block](https://github.com/YU000jp/logseq-plugin-side-block) との統合が可能です。Logseqの動的変数も動作します。
 
 ## クレジット
 
