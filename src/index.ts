@@ -36,9 +36,17 @@ const main = async () => {
   addCommandPaletteCommands()
 
   logseq.provideStyle(`
-    div[data-id="logseq-plugin-default-template"] textarea {
+  div[data-id="logseq-plugin-default-template"]{
+    & div.heading-item {
+    margin-top: 4em;
+    }
+    & span.edit-file+div.heading-item {
+      margin-top: 2em;
+    }
+    & textarea {
       min-height: 5em;
     }
+  }
     `)
 
   // graph変更時の処理
