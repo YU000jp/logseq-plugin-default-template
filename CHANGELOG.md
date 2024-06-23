@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.0.0...v1.1.0) (2024-06-23)
+
+
+### Features
+
+* **Add:** "Completion of journal template" feature ([cc1d531](https://github.com/YU000jp/logseq-plugin-default-template/commit/cc1d5310aa4b2561ca9a3ffccd030335b647d3a5))
+* **Add:** "Enable Default Template for existing pages" option ([8629870](https://github.com/YU000jp/logseq-plugin-default-template/commit/86298709d1bd40d985fbd0fc0fa452348d912dc7))
+
 # 1.0.0 (2024-06-22)
 
 
