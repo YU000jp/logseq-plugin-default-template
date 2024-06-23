@@ -87,17 +87,34 @@ const whenCreateNewPage = () => {
         || block.content === "nil") {
 
         //console.log("blockTree", block)
+        const currentPageEntity = await logseq.Editor.getCurrentPage() as { originalName: PageEntity["originalName"], journal?: PageEntity["journal?"] } | null
+        if (currentPageEntity === null)
+          return console.warn("currentPageEntity is null")
+
+        if (currentPageEntity.journal) {
+          // 日記のシングルページの場合
+          // ジャーナルテンプレートの補完機能
+          const journalTemplate = logseq.settings![currentGraphName + "/journalTemplateName"] as string
+          // テンプレートが設定されていない場合は処理しない
+          if (journalTemplate === "")
+            // 何もしない
+            console.log("journalTemplate is empty (Completion of journal template)")
+          else {
+            if (await logseq.App.existTemplate(journalTemplate) === false) {// テンプレートが存在しない場合は処理しない
+              msgWarn(t("Template not found."), "(Completion of journal template)") // 警告を表示
+              return
+            }
+            await insertTemplateAndRemoveBlock(block.uuid, journalTemplate)// テンプレートを挿入
+          }
+          return
+        }
 
         if (logseq.settings![currentGraphName + "/advancedStartWith"] !== ""
           || logseq.settings![currentGraphName + "/advancedContain"] !== ""
           || logseq.settings![currentGraphName + "/advancedEndWith"] !== "") {
 
           // Advanced Default Templateが設定されている場合
-          const currentPageEntity = await logseq.Editor.getCurrentPage() as { originalName: PageEntity["originalName"] } | null
-          if (currentPageEntity === null)
-            return console.warn("currentPageEntity is null")
-          else
-            advancedDefaultTemplate(block.uuid, currentPageEntity.originalName)
+          advancedDefaultTemplate(block.uuid, currentPageEntity.originalName)
 
         } else
           // Advanced Default Templateが設定されていない場合

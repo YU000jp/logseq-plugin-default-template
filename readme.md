@@ -22,6 +22,8 @@
 1. Command Pallet Items: "Insert Template" **Shortcut**
    > The 3 commands can be used.
    - Quickly insert a template by executing a shortcut while editing a block.
+1. Completion of journal template
+   > Use this template if the journal template is not applied when journal single page is opened.
 
 ## Demo
 
@@ -59,11 +61,10 @@
 ## Showcase / Questions / Ideas / Help
 
 - Note: The plugin settings are provided for each graph.
-- Note: If the user has not set up a journal template, it will be applied when the journal single page is opened.
+- Note: The default template does not apply to journals (attributes). Use the journal template.
+  1. [More journal templates plugin](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions) tab to ask and find this kind of things.
 - This plugin may no longer work or may become unnecessary due to future updates to the Logseq core.
-- Related
-  1. [More journal templates plugin](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 
 ## Credit
 

@@ -10,7 +10,10 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         default: null,
         title: `1. ${t("Default Template Feature")}`,
         // ページを開いたときに、一行目のブロックが空の場合に、テンプレートを挿入する。
-        description: t("When open a page, insert the template if the first block is empty."),
+        // この機能は、ジャーナルを除外します。
+        description: `
+        ${t("When open a page, insert the template if the first block is empty.")}
+        ${t("This feature excludes journals.")}`,
 
     },
     { //デフォルトテンプレート名
@@ -107,4 +110,26 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         title: t("The Third") + " " + t("Template Name"),
         description: "",
     },
+    {
+        key: "header0030",
+        type: "heading",
+        default: null,
+        // ジャーナルテンプレートの補完機能
+        title: `3. ${t("Completion of journal template")}`,
+        // ジャーナルのシングルページを開いたときに、ジャーナルテンプレートが適用されない場合に、このテンプレートを使用します。
+        // 注: ジャーナルテンプレートが設定されていない場合にも適用します。
+        // 現在のジャーナル・テンプレートと同じに設定することをお勧めします。
+        description: `
+        ${t("Use this template if the journal template is not applied when journal single page is opened.")}
+        ${t("Note: Also applies when the journal template is not set.")}
+        ${t("It is recommended to set the same as current journal template.")}
+        `,
+    },
+    {//ジャーナル用テンプレート名
+        key: graphName + "/journalTemplateName",
+        type: "string",
+        default: "",
+        title: t("Journal") + " " + t("Template Name"),
+        description: t("Empty means disabled."),
+    }
 ]
