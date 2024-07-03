@@ -66,7 +66,12 @@
 - 注: デフォルトテンプレートは、ジャーナル(属性)には適用されません。ジャーナルテンプレートを使ってください。
   1. [More journal templates プラグイン](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - このプラグインは、将来のLogseqコアのアップデートにより機能しなくなったり、不要になる可能性があります。
-- 既存の各プラグイン [Full House Templates](https://github.com/stdword/logseq13-full-house-plugin)、[powerblocks](https://github.com/hkgnp/logseq-powerblocks-plugin)、[SmartBlocks](https://github.com/sawhney17/logseq-smartblocks)、[Side Block](https://github.com/YU000jp/logseq-plugin-side-block) との統合が可能です。Logseqの動的変数も動作します。
+- 既存のプラグインを併用可能
+  1. [Full House Templates](https://github.com/stdword/logseq13-full-house-plugin)
+  1. [powerblocks](https://github.com/hkgnp/logseq-powerblocks-plugin)
+  1. [SmartBlocks](https://github.com/sawhney17/logseq-smartblocks)
+  1. [Side Block](https://github.com/YU000jp/logseq-plugin-side-block)
+  > Logseqの動的変数も動作します
 
 ## クレジット
 
