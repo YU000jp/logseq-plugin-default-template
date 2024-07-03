@@ -66,7 +66,12 @@
   1. [More journal templates plugin](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-default-template/discussions) tab to ask and find this kind of things.
 - This plugin may no longer work or may become unnecessary due to future updates to the Logseq core.
-- Integration with existing [Full House Templates plugin](https://github.com/stdword/logseq13-full-house-plugin), [powerblocks plugin](https://github.com/hkgnp/logseq-powerblocks-plugin), [SmartBlocks plugin](https://github.com/sawhney17/logseq-smartblocks), and [Side Block plugin](https://github.com/YU000jp/logseq-plugin-side-block) , and [Dynamic variables](https://mschmidtkorth.github.io/logseq-msk-docs/#/page/dynamic%20variables) of Logseq standard is possible.
+- Integration with existing
+  1. [Full House Templates plugin](https://github.com/stdword/logseq13-full-house-plugin)
+  1. [powerblocks plugin](https://github.com/hkgnp/logseq-powerblocks-plugin)
+  1. [SmartBlocks plugin](https://github.com/sawhney17/logseq-smartblocks)
+  1. [Side Block plugin](https://github.com/YU000jp/logseq-plugin-side-block)
+  1. [Dynamic variables](https://mschmidtkorth.github.io/logseq-msk-docs/#/page/dynamic%20variables) of Logseq standard
   > Template gallery: [Template Gallery plugin](https://github.com/dangermccann/logseq-template-gallery)
 - Document link
   1. [templates (Logseq documents)](https://docs.logseq.com/#/page/templates)
