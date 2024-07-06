@@ -1,4 +1,4 @@
-# Logseq Plugin: Default Template (for New Page)
+# Logseq Plugin: Default Template
 
 - Automatically apply a page template
   > Logseq itself does not have the ability to automatically apply templates to new pages. (only journal templates). This plugin makes it possible. [From Logseq Discuss](https://discuss.logseq.com/t/extend-default-template-functionality/14452)
