@@ -1,6 +1,7 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
-import { getCurrentGraph, insertTemplateAndRemoveBlock } from "."
+import { getCurrentGraph } from "."
+import { insertTemplateAndRemoveBlock } from './insertTemplateAndRemoveBlock'
 import { msgWarn } from "./msg"
 
 const msgId = "SlashCommand (logseq-plugin-default-template)"

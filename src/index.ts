@@ -1,8 +1,9 @@
-import '@logseq/libs' //https://plugins-doc.logseq.com/
+import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { AppGraphInfo, BlockEntity, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
-import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
+import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 import { advancedDefaultTemplate } from './advancedDefaultTemplate'
 import { addCommandPaletteCommands } from './commands'
+import { insertTemplateAndRemoveBlock } from './lib'
 import { msgWarn } from './msg'
 import { settingsTemplate } from './settings'
 import ja from "./translations/ja.json"
@@ -187,21 +188,6 @@ export const defaultTemplate = async (blockUuid: BlockEntity["uuid"]) => {
 
   // テンプレートを挿入
   await insertTemplateAndRemoveBlock(blockUuid, templateName)
-}
-
-
-export const insertTemplateAndRemoveBlock = async (blockUuid: BlockEntity["uuid"], templateName: string) => {
-
-  await logseq.App.insertTemplate(blockUuid, templateName)
-  setTimeout(async () => {
-    const block = await logseq.Editor.getBlock(blockUuid) as { content: BlockEntity["content"] } | null
-    if (block === null
-      || block.content !== "")
-      return
-    else
-      await logseq.Editor.removeBlock(blockUuid) // テンプレート挿入後は空のブロックを削除
-  }, 300)
-  logseq.UI.showMsg(t("Template inserted."), "info", { timeout: 3000 })
 }
 
 
