@@ -1,4 +1,4 @@
-# Logseq プラグイン: Default Template (for New Page)
+# Logseq プラグイン: Default Template
 
 - ページテンプレートを自動的に適用します。
   > Logseq本体には、新しいページにテンプレートを自動的に適用する機能がありません。 (ジャーナルテンプレートのみ)。 このプラグインはそれを実現します。 [> Logseq Discuss](https://discuss.logseq.com/t/extend-default-template-functionality/14452)
