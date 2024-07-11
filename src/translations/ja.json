@@ -12,7 +12,7 @@
   "Empty means disabled.": "空にすると無効になります。",
   "Enable Default Template for existing pages": "既存のページに対して、デフォルトテンプレートを適用する",
   "Enable insert 'last_opened_at' property to the page property": "ページプロパティに 'last_opened_at' プロパティを挿入する",
-  "Enable insert created_at property to Default Template": "デフォルトテンプレートに created_at プロパティを挿入する",
+  "Enable insert created property to Default Template": "デフォルトテンプレートに created プロパティを挿入する",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "既存のページにもデフォルトテンプレートを適用する場合は、この設定を有効にします。",
   "Enable update 'last_opened_at' property when moving to other pages": "他のページに移動したときに 'last_opened_at' プロパティを更新する",
   "End With": "最後尾",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "新しいページを作成すると、カーソルは最初のブロックに配置されますが、既存のページを開くときは配置されません。",
   "When open a page, insert the template if the first block is empty.": "ページを開くときに、最初のブロックが空であれば、テンプレートを挿入します。",
   "Write the condition string and template name separated by '::'.": "条件文字列とテンプレート名を「::」で区切って記述します。",
-  "created_at Property Format": "created_at プロパティの形式",
-  "created_at Property Name": "created_at プロパティ名",
+  "created Property Format": "created プロパティの形式",
+  "created Property Name": "created プロパティ名",
   "last_opened_at Property Format": "last_opened_at プロパティの形式",
   "last_opened_at Property Name": "last_opened_at プロパティ名"
 }

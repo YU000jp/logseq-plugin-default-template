@@ -12,7 +12,7 @@
   "Empty means disabled.": "Если пусто, он будет отключен.",
   "Enable Default Template for existing pages": "Применение шаблона по умолчанию к существующей странице",
   "Enable insert 'last_opened_at' property to the page property": "Вставьте свойство 'last_opened_at' в свойства страницы",
-  "Enable insert created_at property to Default Template": "Вставка свойств created_at в шаблон по умолчанию",
+  "Enable insert created property to Default Template": "Вставка свойств created в шаблон по умолчанию",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Если вы также хотите применить шаблон по умолчанию к существующим страницам, включите эту настройку.",
   "Enable update 'last_opened_at' property when moving to other pages": "Обновление свойства 'last_opened_at' при переходе на другие страницы",
   "End With": "Последний хвост",

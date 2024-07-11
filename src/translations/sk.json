@@ -12,7 +12,7 @@
   "Empty means disabled.": "Ak je prázdny, bude vypnutý.",
   "Enable Default Template for existing pages": "Použitie predvolenej šablóny na existujúcu stranu",
   "Enable insert 'last_opened_at' property to the page property": "Vloženie vlastnosti last_opened_at do vlastností stránky",
-  "Enable insert created_at property to Default Template": "Vloženie created_at vlastností do predvolenej šablóny",
+  "Enable insert created property to Default Template": "Vloženie created vlastností do predvolenej šablóny",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Ak chcete použiť predvolenú šablónu aj na existujúce stránky, povoľte toto nastavenie.",
   "Enable update 'last_opened_at' property when moving to other pages": "Aktualizácia vlastnosti last_opened_at pri navigácii na iné stránky",
   "End With": "Posledný chvost",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Keď vytvoríte novú stranu, kurzor sa umiestni do prvého bloku, ale nie pri otvorení existujúcej strany.",
   "When open a page, insert the template if the first block is empty.": "Keď otvoríte stranu, ak je prvý blok prázdny, vložte šablónu.",
   "Write the condition string and template name separated by '::'.": "Oddeľte reťazec podmienky a názov šablóny znakom \"::\".",
-  "created_at Property Format": "created_at Formát vlastnosti",
-  "created_at Property Name": "created_at Názov nehnuteľnosti",
+  "created Property Format": "created Formát vlastnosti",
+  "created Property Name": "created Názov nehnuteľnosti",
   "last_opened_at Property Format": "last_opened_at Formát vlastnosti",
   "last_opened_at Property Name": "last_opened_at Názov nehnuteľnosti"
 }

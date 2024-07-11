@@ -12,7 +12,7 @@
   "Empty means disabled.": "S’il est vide, il sera désactivé.",
   "Enable Default Template for existing pages": "Appliquer un modèle par défaut à une page existante",
   "Enable insert 'last_opened_at' property to the page property": "Insérez la propriété 'last_opened_at' dans les propriétés de la page",
-  "Enable insert created_at property to Default Template": "Insertion de propriétés created_at dans le modèle par défaut",
+  "Enable insert created property to Default Template": "Insertion de propriétés created dans le modèle par défaut",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Si vous souhaitez également appliquer le modèle par défaut aux pages existantes, activez ce paramètre.",
   "Enable update 'last_opened_at' property when moving to other pages": "Mettre à jour la propriété 'last_opened_at' lors de la navigation vers d’autres pages",
   "End With": "La dernière queue",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Lorsque vous créez une nouvelle page, le curseur est placé dans le premier bloc, mais pas lorsque vous ouvrez une page existante.",
   "When open a page, insert the template if the first block is empty.": "Lorsque vous ouvrez la page, si le premier bloc est vide, insérez le modèle.",
   "Write the condition string and template name separated by '::'.": "Séparez la chaîne de condition et le nom du modèle par « :: ».",
-  "created_at Property Format": "created_at Format de la propriété",
-  "created_at Property Name": "created_at Nom de la propriété",
+  "created Property Format": "created Format de la propriété",
+  "created Property Name": "created Nom de la propriété",
   "last_opened_at Property Format": "last_opened_at Format de la propriété",
   "last_opened_at Property Name": "last_opened_at Nom de la propriété"
 }

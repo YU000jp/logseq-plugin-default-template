@@ -12,7 +12,7 @@
   "Empty means disabled.": "As dit leeg is, sal dit gedeaktiveer word.",
   "Enable Default Template for existing pages": "Pas 'n standaardsjabloon toe op 'n bestaande bladsy",
   "Enable insert 'last_opened_at' property to the page property": "Plaas die 'last_opened_at'-eienskap in die bladsy-eienskappe",
-  "Enable insert created_at property to Default Template": "Voeg created_at eienskappe in die standaardsjabloon in",
+  "Enable insert created property to Default Template": "Voeg created eienskappe in die standaardsjabloon in",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "As u ook die standaardsjabloon op bestaande bladsye wil toepas, aktiveer hierdie instelling.",
   "Enable update 'last_opened_at' property when moving to other pages": "Dateer die 'last_opened_at'-eienskap op wanneer jy na ander bladsye navigeer",
   "End With": "Die laaste stert",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "As u 'n nuwe bladsy skep, word die wyser in die eerste blok geplaas, maar nie as u 'n bestaande bladsy oopmaak nie.",
   "When open a page, insert the template if the first block is empty.": "As u die bladsy oopmaak, voeg die sjabloon in as die eerste blok leeg is.",
   "Write the condition string and template name separated by '::'.": "Skei die toestandstring en die sjabloonnaam met \"::\".",
-  "created_at Property Format": "created_at Eiendomsformaat",
-  "created_at Property Name": "created_at Eiendomsnaam",
+  "created Property Format": "created Eiendomsformaat",
+  "created Property Name": "created Eiendomsnaam",
   "last_opened_at Property Format": "last_opened_at Eiendomsformaat",
   "last_opened_at Property Name": "last_opened_at Eiendomsnaam"
 }

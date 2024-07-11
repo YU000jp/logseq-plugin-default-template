@@ -12,7 +12,7 @@
   "Empty means disabled.": "Si está vacío, se desactivará.",
   "Enable Default Template for existing pages": "Aplicar una plantilla predeterminada a una página existente",
   "Enable insert 'last_opened_at' property to the page property": "Inserte la propiedad 'last_opened_at' en las propiedades de la página",
-  "Enable insert created_at property to Default Template": "Inserción de propiedades created_at en la plantilla predeterminada",
+  "Enable insert created property to Default Template": "Inserción de propiedades created en la plantilla predeterminada",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Si también desea aplicar la plantilla predeterminada a las páginas existentes, habilite esta configuración.",
   "Enable update 'last_opened_at' property when moving to other pages": "Actualice la propiedad 'last_opened_at' al navegar a otras páginas",
   "End With": "La última cola",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Al crear una nueva página, el cursor se coloca en el primer bloque, pero no cuando se abre una página existente.",
   "When open a page, insert the template if the first block is empty.": "Al abrir la página, si el primer bloque está vacío, inserte la plantilla.",
   "Write the condition string and template name separated by '::'.": "Separe la cadena de condición y el nombre de la plantilla con \"::\".",
-  "created_at Property Format": "created_at Formato de propiedad",
-  "created_at Property Name": "created_at Nombre de la propiedad",
+  "created Property Format": "created Formato de propiedad",
+  "created Property Name": "created Nombre de la propiedad",
   "last_opened_at Property Format": "last_opened_at Formato de propiedad",
   "last_opened_at Property Name": "last_opened_at Nombre de la propiedad"
 }

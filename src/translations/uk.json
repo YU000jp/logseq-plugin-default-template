@@ -12,7 +12,7 @@
   "Empty means disabled.": "Якщо він порожній, його буде вимкнено.",
   "Enable Default Template for existing pages": "Застосування шаблону за замовчуванням до існуючої сторінки",
   "Enable insert 'last_opened_at' property to the page property": "Вставте властивість «last_opened_at» у властивості сторінки",
-  "Enable insert created_at property to Default Template": "Вставка created_at властивостей у шаблон за замовчуванням",
+  "Enable insert created property to Default Template": "Вставка created властивостей у шаблон за замовчуванням",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Якщо ви також хочете застосувати шаблон за замовчуванням до наявних сторінок, увімкніть цей параметр.",
   "Enable update 'last_opened_at' property when moving to other pages": "Оновлюйте властивість \"last_opened_at\" під час переходу на інші сторінки",
   "End With": "Останній хвіст",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Коли ви створюєте нову сторінку, курсор розміщується в першому блоці, але не при відкритті існуючої сторінки.",
   "When open a page, insert the template if the first block is empty.": "При відкритті сторінки, якщо перший блок порожній, вставте шаблон.",
   "Write the condition string and template name separated by '::'.": "Відокремте рядок умови та ім'я шаблону за допомогою \"::\".",
-  "created_at Property Format": "created_at Формат властивості",
-  "created_at Property Name": "created_at Назва об'єкта",
+  "created Property Format": "created Формат властивості",
+  "created Property Name": "created Назва об'єкта",
   "last_opened_at Property Format": "last_opened_at Формат властивостей",
   "last_opened_at Property Name": "last_opened_at Ім'я об'єкта"
 }

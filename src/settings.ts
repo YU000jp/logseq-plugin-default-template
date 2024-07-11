@@ -173,79 +173,79 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
 
     // /* ---- Option 4. ---- */
 
-    // { // 日時をもつページプロパティの挿入機能
-    //     key: "header0040",
-    //     type: "heading",
-    //     default: null,
-    //     title: `4. ${t("Insert Date-Time property Feature")}`,
-    //     // これは、マークダウンファイルに、日時をもつプロパティを挿入するための1つのオプション機能です。
-    //     description: `
-    //     ${t("This is one optional feature to insert a property in the markdown file that has a date and time.")}
-    //     `,
-    // },
+    { // 日時をもつページプロパティの挿入機能
+        key: "header0040",
+        type: "heading",
+        default: null,
+        title: `4. ${t("Insert Date-Time property Feature")} 🆕🚧`,
+        // これは、マークダウンファイルに、日時をもつプロパティを挿入するための1つのオプション機能です。
+        description: `
+        ${t("This is one optional feature to insert a property in the markdown file that has a date and time.")}
+        `,
+    },
 
-    // /* created_at */
-    // { // デフォルトテンプレートに対して、作成日時プロパティを挿入するかどうか
-    //     key: "insertCreateDateToDefault",
-    //     type: "boolean",
-    //     default: false,
-    //     // デフォルトテンプレートに作成日時プロパティを挿入する
-    //     // このオプションは、デフォルトテンプレートに対して適用されます。
-    //     // このオプションだけを使用するには、空のデフォルトテンプレートを設定してください。
-    //     title: t("Enable insert created_at property to Default Template"),
-    //     // デフォルトテンプレートが呼び出された後に、そのページプロパティを挿入します。
-    //     description: `
-    //     ${t("Insert the page property after the default template is called.")}
-    //     ${t("This option is applied to the default template.")}
-    //     ${t("To use only this option, set an empty default template.")}
-    //     `,
-    // },
-    // { // 作成日時プロパティの名称
-    //     key: "createdAtPropertyName",
-    //     type: "string",
-    //     default: "created_at",
-    //     title: t("created_at Property Name"),
-    //     // 通常のCreated-Atプロパティは、Logseqコアにより隠されるため使用できません。
-    //     // 代わりに、このプロパティを使用して、作成日時を記録します。
-    //     // プロパティ名称を変更することができます。
-    //     description: `
-    //     ${t("The 'Created-At' property is hidden by the Logseq core and cannot be used.")}
-    //     ${t("Instead, use this property to record the creation date and time.")}
-    //     ${t("The property name can be changed.")}
-    //     `
-    // },
-    // { // プロパティの形式の選択
-    //     key: "createdAtPropertyFormat",
-    //     type: "enum",
-    //     enumChoices: [
-    //         "[[<% Today %>]]",
-    //         "[[<% Today %>]] <% Time %>",
-    //         "[[<% Today %>]] *<% Time %>*",
-    //         "[[<% Today %>]] **<% Time %>**",
-    //         "<% Today %>",
-    //         "<% Today %> <% Time %>",
-    //         "<% Today %> *<% Time %>*",
-    //         "<% Today %> **<% Time %>**",
-    //         "UTCDateTime",
-    //         "localizeDefault",
-    //         "journalDay",
-    //     ],
-    //     default: "[[<% Today %>]] *<% Time %>*",
-    //     title: t("created_at Property Format"),
-    //     // <% Today %> は、日付を表します。
-    //     // <% Time %> は、時間を表します。
-    //     // UTCDateTime は、2024-06-23T12:34:56Z のようなUTC日時を表します。
-    //     // localizeDefault は、ブラウザのロケールに基づいた日時を表します。
-    //     // journalDay は、20240623 のような生の日付を表します。
-    //     description: `
-    //     ${t("The '<% Today %>' represents the date.")}
-    //     ${t("The '<% Time %>' represents the time.")}
-    //     ${t("The 'UTCDateTime' represents the UTC date and time like 2024-06-23T12:34:56Z.")}
-    //     ${t("The 'localizeDefault' represents the date and time based on the browser's locale.")} (Use 'Intl.DateTimeFormat()')
-    //     ${t("The 'journalDay' represents the raw date like 20240623.")}
-    //     `
-    // },
-    // /* End created_at */
+    /* created */
+    { // デフォルトテンプレートに対して、作成日時プロパティを挿入するかどうか
+        key: "insertCreateDateToDefault",
+        type: "boolean",
+        default: false,
+        // デフォルトテンプレートに作成日時プロパティを挿入する
+        // このオプションは、デフォルトテンプレートに対して適用されます。
+        // このオプションだけを使用するには、空のデフォルトテンプレートを設定してください。
+        title: t("Enable insert created property to Default Template"),
+        // デフォルトテンプレートが呼び出された後に、そのページプロパティを挿入します。
+        description: `
+        ${t("Insert the page property after the default template is called.")}
+        ${t("This option is applied to the default template.")}
+        ${t("To use only this option, set an empty default template.")}
+        `,
+    },
+    { // 作成日時プロパティの名称
+        key: "createdAtPropertyName",
+        type: "string",
+        default: "created",
+        title: t("created Property Name"),
+        // 通常のCreated-Atプロパティは、Logseqコアにより隠されるため使用できません。
+        // 代わりに、このプロパティを使用して、作成日時を記録します。
+        // プロパティ名称を変更することができます。
+        description: `
+        ${t("The 'Created-At' property is hidden by the Logseq core and cannot be used.")}
+        ${t("Instead, use this property to record the creation date and time.")}
+        ${t("The property name can be changed.")}
+        `
+    },
+    { // プロパティの形式の選択
+        key: "createdAtPropertyFormat",
+        type: "enum",
+        enumChoices: [
+            "[[<% Today %>]]",
+            "[[<% Today %>]] <% Time %>",
+            "[[<% Today %>]] *<% Time %>*",
+            "[[<% Today %>]] **<% Time %>**",
+            "<% Today %>",
+            "<% Today %> <% Time %>",
+            "<% Today %> *<% Time %>*",
+            "<% Today %> **<% Time %>**",
+            "UTCDateTime",
+            "localizeDefault",
+            "journalDay",
+        ],
+        default: "[[<% Today %>]] *<% Time %>*",
+        title: t("created Property Format"),
+        // <% Today %> は、日付を表します。
+        // <% Time %> は、時間を表します。
+        // UTCDateTime は、2024-06-23T12:34:56Z のようなUTC日時を表します。
+        // localizeDefault は、ブラウザのロケールに基づいた日時を表します。
+        // journalDay は、20240623 のような生の日付を表します。
+        description: `
+        ${t("The '<% Today %>' represents the date.")}
+        ${t("The '<% Time %>' represents the time.")}
+        ${t("The 'UTCDateTime' represents the UTC date and time like 2024-06-23T12:34:56Z.")}
+        ${t("The 'localizeDefault' represents the date and time based on the browser's locale.")} (Use 'Intl.DateTimeFormat()')
+        ${t("The 'journalDay' represents the raw date like 20240623.")}
+        `
+    },
+    /* End created */
 
     // /* last_opened_at */
     // { // 最後に開いた時刻を記録するプロパティの挿入機能

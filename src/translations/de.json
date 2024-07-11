@@ -12,7 +12,7 @@
   "Empty means disabled.": "Wenn es leer ist, wird es deaktiviert.",
   "Enable Default Template for existing pages": "Anwenden einer Standardvorlage auf eine vorhandene Seite",
   "Enable insert 'last_opened_at' property to the page property": "Fügen Sie die Eigenschaft \"last_opened_at\" in die Seiteneigenschaften ein",
-  "Enable insert created_at property to Default Template": "Einfügen created_at Eigenschaften in die Standardvorlage",
+  "Enable insert created property to Default Template": "Einfügen created Eigenschaften in die Standardvorlage",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Wenn Sie die Standardvorlage auch auf vorhandene Seiten anwenden möchten, aktivieren Sie diese Einstellung.",
   "Enable update 'last_opened_at' property when moving to other pages": "Aktualisieren der Eigenschaft \"last_opened_at\", wenn Sie zu anderen Seiten navigieren",
   "End With": "Der letzte Schwanz",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Wenn Sie eine neue Seite erstellen, wird der Cursor im ersten Block platziert, jedoch nicht, wenn Sie eine vorhandene Seite öffnen.",
   "When open a page, insert the template if the first block is empty.": "Wenn Sie die Seite öffnen und der erste Block leer ist, fügen Sie die Vorlage ein.",
   "Write the condition string and template name separated by '::'.": "Trennen Sie die Bedingungszeichenfolge und den Vorlagennamen mit \"::\".",
-  "created_at Property Format": "created_at Eigenschaftsformat",
-  "created_at Property Name": "created_at Name der Eigenschaft",
+  "created Property Format": "created Eigenschaftsformat",
+  "created Property Name": "created Name der Eigenschaft",
   "last_opened_at Property Format": "last_opened_at Eigenschaftsformat",
   "last_opened_at Property Name": "last_opened_at Eigenschaftsname"
 }

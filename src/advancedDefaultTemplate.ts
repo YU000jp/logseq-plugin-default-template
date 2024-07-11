@@ -71,7 +71,7 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
 
   if (isMatch) {
     if (await logseq.App.existTemplate(matchedTemplate) === true)
-      await insertTemplateAndRemoveBlock(blockUuid, matchedTemplate) // テンプレート挿入を実行
+      await insertTemplateAndRemoveBlock(blockUuid, matchedTemplate, { pageName }) // テンプレート挿入を実行
     else
       msgForThisFeature(`
       ${t("Template not found.")}
@@ -79,7 +79,7 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
       `, "warn")
   } else {
     console.log("No match found. (Advanced Default Template Feature)") // マッチするものがなかった場合はログだけ出力
-    await defaultTemplate(blockUuid) // デフォルトテンプレートを挿入する
+    await defaultTemplate(blockUuid, pageName) // デフォルトテンプレートを挿入する
   }
 }
 

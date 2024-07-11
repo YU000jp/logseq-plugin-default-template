@@ -12,7 +12,7 @@
   "Empty means disabled.": "Jika kosong, itu akan dinonaktifkan.",
   "Enable Default Template for existing pages": "Menerapkan template default ke halaman yang sudah ada",
   "Enable insert 'last_opened_at' property to the page property": "Menyisipkan properti 'last_opened_at' ke properti halaman",
-  "Enable insert created_at property to Default Template": "Memasukkan Properti created_at ke dalam Template Default",
+  "Enable insert created property to Default Template": "Memasukkan Properti created ke dalam Template Default",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Jika Anda juga ingin menerapkan template default ke halaman yang ada, aktifkan setelan ini.",
   "Enable update 'last_opened_at' property when moving to other pages": "Memperbarui properti 'last_opened_at' saat menavigasi ke halaman lain",
   "End With": "Ekor terakhir",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Saat Anda membuat halaman baru, kursor ditempatkan di blok pertama, tetapi tidak saat Anda membuka halaman yang sudah ada.",
   "When open a page, insert the template if the first block is empty.": "Saat Anda membuka halaman, jika blok pertama kosong, masukkan template.",
   "Write the condition string and template name separated by '::'.": "Pisahkan string kondisi dan nama template dengan \"::\".",
-  "created_at Property Format": "created_at Format Properti",
-  "created_at Property Name": "created_at Nama Properti",
+  "created Property Format": "created Format Properti",
+  "created Property Name": "created Nama Properti",
   "last_opened_at Property Format": "last_opened_at Format Properti",
   "last_opened_at Property Name": "last_opened_at Nama Properti"
 }

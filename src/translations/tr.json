@@ -12,7 +12,7 @@
   "Empty means disabled.": "Boşsa, devre dışı bırakılacaktır.",
   "Enable Default Template for existing pages": "Varolan bir sayfaya varsayılan şablon uygulama",
   "Enable insert 'last_opened_at' property to the page property": "'last_opened_at' özelliğini sayfa özelliklerine ekleyin",
-  "Enable insert created_at property to Default Template": "created_at Özelliklerini Varsayılan Şablona Ekleme",
+  "Enable insert created property to Default Template": "created Özelliklerini Varsayılan Şablona Ekleme",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Varsayılan şablonu varolan sayfalara da uygulamak istiyorsanız, bu ayarı etkinleştirin.",
   "Enable update 'last_opened_at' property when moving to other pages": "Diğer sayfalara giderken 'last_opened_at' özelliğini güncelleyin",
   "End With": "Son kuyruk",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Yeni bir sayfa oluşturduğunuzda, imleç ilk bloğa yerleştirilir, ancak mevcut bir sayfayı açtığınızda yerleştirilmez.",
   "When open a page, insert the template if the first block is empty.": "Sayfayı açtığınızda, ilk blok boşsa şablonu ekleyin.",
   "Write the condition string and template name separated by '::'.": "Koşul dizesini ve şablon adını \"::\" ile ayırın.",
-  "created_at Property Format": "created_at Özellik Biçimi",
-  "created_at Property Name": "created_at Özellik Adı",
+  "created Property Format": "created Özellik Biçimi",
+  "created Property Name": "created Özellik Adı",
   "last_opened_at Property Format": "last_opened_at Özellik Biçimi",
   "last_opened_at Property Name": "last_opened_at Özellik Adı"
 }

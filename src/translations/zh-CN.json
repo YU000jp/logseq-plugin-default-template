@@ -12,7 +12,7 @@
   "Empty means disabled.": "如果为空，它将被禁用。",
   "Enable Default Template for existing pages": "将默认模板应用于现有页面",
   "Enable insert 'last_opened_at' property to the page property": "将“last_opened_at”属性插入到页面属性中",
-  "Enable insert created_at property to Default Template": "将created_at属性插入到默认模板中",
+  "Enable insert created property to Default Template": "将created属性插入到默认模板中",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "如果还想将默认模板应用于现有页面，请启用此设置。",
   "Enable update 'last_opened_at' property when moving to other pages": "导航到其他页面时更新“last_opened_at”属性",
   "End With": "最后尾",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "创建新页面时，光标将放置在第一个块中，但在打开现有页面时不会。",
   "When open a page, insert the template if the first block is empty.": "打开页面时，如果第一个块为空，请插入模板。",
   "Write the condition string and template name separated by '::'.": "用“：：”分隔条件字符串和模板名称。",
-  "created_at Property Format": "created_at属性格式",
-  "created_at Property Name": "created_at属性名称",
+  "created Property Format": "created属性格式",
+  "created Property Name": "created属性名称",
   "last_opened_at Property Format": "last_opened_at属性格式",
   "last_opened_at Property Name": "last_opened_at属性名称"
 }

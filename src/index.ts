@@ -1,6 +1,6 @@
-import '@logseq/libs'; //https://plugins-doc.logseq.com/
+import '@logseq/libs' //https://plugins-doc.logseq.com/
 import { AppGraphInfo, BlockEntity, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
-import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
+import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import { advancedDefaultTemplate } from './advancedDefaultTemplate'
 import { addCommandPaletteCommands } from './commands'
 import { insertTemplateAndRemoveBlock } from './lib'
@@ -107,7 +107,7 @@ const whenCreateNewPage = () => {
           const checkUserSettings: boolean = await checkTemplateNameForJournal(journalTemplate) // テンプレート名が設定されているか、そのテンプレート名が有効かどうかチェック
           if (checkUserSettings === false)
             return // チェックによって処理を中断
-          await insertTemplateAndRemoveBlock(block.uuid, journalTemplate)// テンプレートを挿入
+          await insertTemplateAndRemoveBlock(block.uuid, journalTemplate, { journal: true })// テンプレートを挿入
 
         } else {
           // ジャーナル属性でない場合
@@ -121,7 +121,7 @@ const whenCreateNewPage = () => {
 
           } else
             // Advanced Default Templateが設定されていない場合
-            defaultTemplate(block.uuid)
+            defaultTemplate(block.uuid, currentPageEntity.originalName)
         }
       } else
         console.log("blockTree[0].content is not empty or nil. Skip processing.")
@@ -146,7 +146,7 @@ const whenCreateNewPage = () => {
           if (newBlockEntity === null)
             return console.warn("newBlockEntity is null" + currentPageEntity.originalName)
           else
-            await insertTemplateAndRemoveBlock(newBlockEntity.uuid, journalTemplate) // 作成したブロックにテンプレートを挿入
+            await insertTemplateAndRemoveBlock(newBlockEntity.uuid, journalTemplate, { pageName: currentPageEntity.originalName }) // 作成したブロックにテンプレートを挿入
 
         } else
           // ジャーナル属性でなく、ユーザー設定によりブロックを追加しない場合は何もしない
@@ -154,6 +154,9 @@ const whenCreateNewPage = () => {
 
       } else {
         // 複数行の場合は何も処理しない
+
+
+
 
       }
   }, 800) // 0.8秒後に遅延実行 ※WeeklyJournalなどのほかのプラグイン対策
@@ -174,7 +177,7 @@ const checkTemplateNameForJournal = async (journalTemplate: string): Promise<boo
 }
 
 
-export const defaultTemplate = async (blockUuid: BlockEntity["uuid"]) => {
+export const defaultTemplate = async (blockUuid: BlockEntity["uuid"], pageName: string) => {
   // テンプレートが設定されていない場合は処理しない
   const templateName = logseq.settings![currentGraphName + "/defaultTemplateName"] as string
   if (templateName === "")
@@ -187,7 +190,7 @@ export const defaultTemplate = async (blockUuid: BlockEntity["uuid"]) => {
   }
 
   // テンプレートを挿入
-  await insertTemplateAndRemoveBlock(blockUuid, templateName)
+  await insertTemplateAndRemoveBlock(blockUuid, templateName, { pageName })
 }
 
 

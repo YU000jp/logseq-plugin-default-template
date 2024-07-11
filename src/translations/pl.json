@@ -12,7 +12,7 @@
   "Empty means disabled.": "Jeśli jest pusty, zostanie wyłączony.",
   "Enable Default Template for existing pages": "Stosowanie szablonu domyślnego do istniejącej strony",
   "Enable insert 'last_opened_at' property to the page property": "Wstaw właściwość \"last_opened_at\" do właściwości strony",
-  "Enable insert created_at property to Default Template": "Wstawianie właściwości created_at do szablonu domyślnego",
+  "Enable insert created property to Default Template": "Wstawianie właściwości created do szablonu domyślnego",
   "Enable this setting if you wish to apply the default template to existing pages as well.": "Jeśli chcesz zastosować szablon domyślny również do istniejących stron, włącz to ustawienie.",
   "Enable update 'last_opened_at' property when moving to other pages": "Zaktualizuj właściwość \"last_opened_at\" podczas przechodzenia do innych stron",
   "End With": "Ostatni ogon",
@@ -57,8 +57,8 @@
   "When creating a new page, the cursor is placed on the first block, but not when opening an existing page.": "Podczas tworzenia nowej strony kursor jest umieszczany w pierwszym bloku, ale nie po otwarciu istniejącej strony.",
   "When open a page, insert the template if the first block is empty.": "Po otwarciu strony, jeśli pierwszy blok jest pusty, wstaw szablon.",
   "Write the condition string and template name separated by '::'.": "Oddziel ciąg warunku i nazwę szablonu znakiem \"::\".",
-  "created_at Property Format": "created_at Format właściwości",
-  "created_at Property Name": "created_at Nazwa właściwości",
+  "created Property Format": "created Format właściwości",
+  "created Property Name": "created Nazwa właściwości",
   "last_opened_at Property Format": "last_opened_at Format właściwości",
   "last_opened_at Property Name": "last_opened_at Nazwa właściwości"
 }
