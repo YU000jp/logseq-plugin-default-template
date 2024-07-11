@@ -1,7 +1,7 @@
 import { BlockEntity, PageEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
 import { currentGraphName, defaultTemplate } from "."
-import { insertTemplateAndRemoveBlock } from './insertTemplateAndRemoveBlock'
+import { insertTemplateAndRemoveBlock } from './lib'
 import { msgInfo, msgWarn } from "./msg"
 
 export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pageName: PageEntity["originalName"]) => {
