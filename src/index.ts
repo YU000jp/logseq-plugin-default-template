@@ -309,6 +309,24 @@ const loadByGraph = async () => {
     setTimeout(() => {
       if (!logseq.settings) logseq.showSettingsUI()
     }, 300)
+
+    //移行メッセージ
+    if (logseq.settings!.notice !== "2024071202") {
+      logseq.UI.showMsg(`
+
+        🆕 New features:
+
+        1. 🖊️${t("Ability to insert creation date or time property into default template")}
+
+        2. 👣${t("Footprint Feature")}
+           > ${t("Insert 'lastOpenedAt' property to the page property")}
+        
+        
+        Default Page Template plugin
+
+        `, "warning", { timeout: 11000 })
+      logseq.updateSettings({ notice: "2024071202" })
+    }
   }
 }
 
