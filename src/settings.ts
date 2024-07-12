@@ -150,9 +150,7 @@ export const settingsTemplate = (graphName: string, preferredLanguage: string): 
         default: "",
         title: t("Regular Expression"),
         inputAs: "textarea",
-        // 
         description: "",
-
     },
 
 
@@ -362,6 +360,14 @@ export const settingsTemplate = (graphName: string, preferredLanguage: string): 
         description: `
         ${t("Match if it contains a specific string.")}
         ⚠️${t("Be careful as it is more powerful than other specifications.")}`,
+    },
+    {// 正規表現にマッチする場合
+        key: "lastOpenedAtExcludesPagesRegex",
+        type: "string",
+        default: "",
+        title: t("Regular Expression"),
+        inputAs: "textarea",
+        description: "",
     },
     /* End lastOpenedAt */
 
