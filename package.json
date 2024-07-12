@@ -1,12 +1,12 @@
 {
     "name": "logseq-plugin-default-template",
-    "description": "Automatically a insert template when creating a page",
+    "description": "Automatically a insert template when creating a page. / Property the date and time the page was last opened",
     "repository": "https://github.com/YU000jp/logseq-plugin-default-template.git",
     "author": "YU000jp",
     "license": "MIT",
     "logseq": {
         "id": "logseq-plugin-default-template",
-        "title": "Default Template (for New Page)",
+        "title": "Default Page Template / Footprint",
         "icon": "./icon.svg",
         "main": "./dist/index.html"
     },
