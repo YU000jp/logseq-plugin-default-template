@@ -73,5 +73,9 @@ const checkExcludedPage = (pageName: string) => {
     isExcluded(
       logseq.settings!.lastOpenedAtExcludesPagesContain as string,
       (v: string) => pageName.includes(v)
+    ) ||
+    isExcluded(
+      logseq.settings!.lastOpenedAtExcludesPagesRegex as string,
+      (v: string) => new RegExp(v).test(pageName)
     )
 }
