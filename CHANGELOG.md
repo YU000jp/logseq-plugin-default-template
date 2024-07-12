@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.1.0...v1.2.0) (2024-07-12)
+
+
+### Features
+
+* **Add:** Ability to automatically insert a created_at property. ([ce2322d](https://github.com/YU000jp/logseq-plugin-default-template/commit/ce2322ddc0df898162c53cfd4ad3437e6ea61901))
+* **Add:** Footprint feature ([2884be0](https://github.com/YU000jp/logseq-plugin-default-template/commit/2884be093fd50dd8f68d0c9841b6b128e7f24974))
+
 # [1.1.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.0.0...v1.1.0) (2024-06-23)
 
 
