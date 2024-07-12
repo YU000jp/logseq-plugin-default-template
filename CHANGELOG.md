@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.2.0...v1.3.0) (2024-07-12)
+
+
+### Bug Fixes
+
+* **bug:** LastOpenedAt exclude pages ([2e644c8](https://github.com/YU000jp/logseq-plugin-default-template/commit/2e644c80c7775c45d09b56590bb594c27bda67c0))
+
+
+### Features
+
+* **Add:** RegExp to specify in plugin settings [#4](https://github.com/YU000jp/logseq-plugin-default-template/issues/4) ([b8199f7](https://github.com/YU000jp/logseq-plugin-default-template/commit/b8199f7ccfa53fe1653f46b72373d9c8ed908823))
+
 # [1.2.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.1.0...v1.2.0) (2024-07-12)
 
 
