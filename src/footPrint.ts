@@ -42,19 +42,7 @@ export const footPrint = async (blockTree: { uuid: BlockEntity["uuid"]; content:
       const currentPageEntity = await logseq.Editor.getCurrentPage() as { originalName: PageEntity["originalName"] } | null
       if (currentPageEntity) {
         // ページの除外
-        if (
-          // logseq.settings!.lastOpenedAtExcludesPagesに複数行でページ名を記入すると、そのページは除外される
-          (logseq.settings!.lastOpenedAtExcludesPages as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPages as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPages as string).split("\n").includes(currentPageEntity.originalName))
-          // logseq.settings!.lastOpenedAtExcludesPagesStartWithに複数行で、ページ名の先頭部分を記入すると、そのページは除外される
-          || (logseq.settings!.lastOpenedAtExcludesPagesStartWith as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPagesStartWith as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPagesStartWith as string).split("\n").some((v: string) => currentPageEntity.originalName.startsWith(v)))
-          // logseq.settings!.lastOpenedAtExcludesPagesContainに複数行で、ページ名の一部を記入すると、そのページは除外される
-          || (logseq.settings!.lastOpenedAtExcludesPagesContain as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPagesContain as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPagesContain as string).split("\n").some((v: string) => currentPageEntity.originalName.includes(v)))) {
+        if (checkExcludedPage(currentPageEntity.originalName)) {
           console.log("This page is excluded.")
           return
         }
@@ -65,4 +53,29 @@ export const footPrint = async (blockTree: { uuid: BlockEntity["uuid"]; content:
     } else
       console.warn("Failed to get date string.")
   }, 5000)
+}
+
+
+const checkExcludedPage = (pageName: string) => {
+  const isExcluded = (excludes: string, condition: (v: string) => boolean) =>
+  (excludes !== ""
+    && excludes !== pageName
+    && excludes.split("\n").some(condition))
+
+  return isExcluded(
+    logseq.settings!.lastOpenedAtExcludesPages as string,
+    (v: string) => v === pageName
+  ) ||
+    isExcluded(
+      logseq.settings!.lastOpenedAtExcludesPagesStartWith as string,
+      (v: string) => pageName.startsWith(v)
+    ) ||
+    isExcluded(
+      logseq.settings!.lastOpenedAtExcludesPagesContain as string,
+      (v: string) => pageName.includes(v)
+    ) ||
+    isExcluded(
+      logseq.settings!.lastOpenedAtExcludesPagesRegex as string,
+      (v: string) => new RegExp(v).test(pageName)
+    )
 }
