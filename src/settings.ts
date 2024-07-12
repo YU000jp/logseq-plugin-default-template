@@ -135,7 +135,7 @@ export const settingsTemplate = (graphName: string, preferredLanguage: string): 
         ${t("Match if it contains a specific string.")}
         ⚠️${t("Be careful as it is more powerful than other specifications.")}`,
     },
-    { //最後尾にマッチする場合
+    { // 最後尾にマッチする場合
         key: graphName + "/advancedEndWith",
         type: "string",
         default: "",
@@ -143,6 +143,16 @@ export const settingsTemplate = (graphName: string, preferredLanguage: string): 
         inputAs: "textarea",
         // サブページなどにマッチさせる場合に使用します。
         description: `${t("Match if it ends with a specific string (e.g. sub page).")}`,
+    },
+    { // 正規表現にマッチする場合
+        key: graphName + "/advancedRegex",
+        type: "string",
+        default: "",
+        title: t("Regular Expression"),
+        inputAs: "textarea",
+        // 
+        description: "",
+
     },
 
 

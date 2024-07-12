@@ -8,10 +8,12 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
   const startWith = logseq.settings![currentGraphName + "/advancedStartWith"] as string
   const contain = logseq.settings![currentGraphName + "/advancedContain"] as string
   const endWith = logseq.settings![currentGraphName + "/advancedEndWith"] as string
+  const regex = logseq.settings![currentGraphName + "/advancedRegex"] as string
 
   const startWithArray = (startWith.includes("\n")) ? startWith.split("\n") : [startWith]
   const containArray = (contain.includes("\n")) ? contain.split("\n") : [contain]
   const endWithArray = (endWith.includes("\n")) ? endWith.split("\n") : [endWith]
+  const regexArray = (regex.includes("\n")) ? regex.split("\n") : [regex]
 
   let isMatch = false
   let matchedTemplate = ""
@@ -20,6 +22,7 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
   // console.log("startWithArray", startWithArray)
   // console.log("containArray", containArray)
   // console.log("endWithArray", endWithArray)
+  // console.log("regexArray", regexArray)
 
   // 先頭にマッチする場合
   if (startWithArray.length > 0
@@ -68,6 +71,24 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
         }
       } else
         msgWarnInvalidFormat(ew)
+  
+  // 正規表現にマッチする場合
+  if (!isMatch
+    && regexArray.length > 0
+    && regexArray[0] !== "")
+    for (const r of regexArray)
+      if (r.includes("::")) {
+        const regex = new RegExp(r.split("::")[0])
+        if (regex.test(pageName)) {
+          isMatch = true
+          //rには「AAA:TemplateName」の形式で設定されている
+          matchedTemplate = r.split("::")[1]
+          console.log("matchedTemplate", matchedTemplate)
+          break
+        }
+      } else
+        msgWarnInvalidFormat(r)
+  
 
   if (isMatch) {
     if (await logseq.App.existTemplate(matchedTemplate) === true)
