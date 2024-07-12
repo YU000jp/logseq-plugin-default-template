@@ -27,7 +27,7 @@
   "If this is enabled, the above item will be disabled.": "これを有効にすると、上記の項目は無効になります。",
   "If this property exists, it will be updated 30 seconds later.": "このプロパティが存在する場合は、30 秒後に更新されます。",
   "If you want to delete a property immediately after inserting it, press the undo shortcut key [Ctrl(Cmd)+Z].": "プロパティを挿入した直後に削除したい場合は、ショートカットキーの取り消しキー[Ctrl(Cmd)+Z]を押します。",
-  "Insert 'lastOpenedAt' property to the page property": "pageプロパティに'lastOpenedAt'プロパティを挿入します",
+  "Insert 'lastOpenedAt' property to the page property": "ページプロパティに'lastOpenedAt'プロパティを挿入します",
   "Insert Template": "テンプレートの挿入",
   "Insert a template based on the page title conditions.": "ページタイトルの条件に基づいて、テンプレートを挿入します。",
   "Insert the page property after the default template is called.": "デフォルトテンプレートが呼び出された後に、ページプロパティを挿入します。",
