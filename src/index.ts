@@ -87,6 +87,10 @@ const main = async () => {
                       
                       &+div.desc-item[data-key="lastOpenedAtExcludesPagesContain"] {
                           display: none;
+
+                          &+div.desc-item[data-key="lastOpenedAtExcludesPagesRegex"] {
+                            display: none;
+                          }
                       }
                   }
               } 
