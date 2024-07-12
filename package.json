@@ -1,6 +1,6 @@
 {
     "name": "logseq-plugin-default-template",
-    "description": "Automatically insert a template / Property the date and time the page was last opened",
+    "description": "Automatically apply a page template / Property the date and time the page was last opened",
     "repository": "https://github.com/YU000jp/logseq-plugin-default-template.git",
     "author": "YU000jp",
     "license": "MIT",
