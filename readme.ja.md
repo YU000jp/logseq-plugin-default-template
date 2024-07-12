@@ -3,6 +3,7 @@
 1. ページテンプレートを自動的に適用します。
    > Logseq本体には、新しいページにテンプレートを自動的に適用する機能がありません。 (ジャーナルテンプレートのみ)。 このプラグインはそれを実現します。 [> Logseq Discuss](https://discuss.logseq.com/t/extend-default-template-functionality/14452)
 1. 足あと機能
+   - マークダウンファイル(ページ)に、最後に開いた日時を残します。
 
 <div align="right">
 
