@@ -31,7 +31,7 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
       if (sw.includes("::")) {
         if (pageName.startsWith(sw.split("::")[0])) {
           isMatch = true
-          //swには「AAA:TemplateName」の形式で設定されている
+          //swには「AAA::TemplateName」の形式で設定されている
           matchedTemplate = sw.split("::")[1]
           console.log("matchedTemplate", matchedTemplate)
           break
@@ -48,7 +48,7 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
       if (c.includes("::")) {
         if (pageName.includes(c.split("::")[0])) {
           isMatch = true
-          //cには「AAA:TemplateName」の形式で設定されている
+          //cには「AAA::TemplateName」の形式で設定されている
           matchedTemplate = c.split("::")[1]
           console.log("matchedTemplate", matchedTemplate)
           break
@@ -64,14 +64,14 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
       if (ew.includes("::")) {
         if (pageName.endsWith(ew.split("::")[0])) {
           isMatch = true
-          //ewには「AAA:TemplateName」の形式で設定されている
+          //ewには「AAA::TemplateName」の形式で設定されている
           matchedTemplate = ew.split("::")[1]
           console.log("matchedTemplate", matchedTemplate)
           break
         }
       } else
         msgWarnInvalidFormat(ew)
-  
+
   // 正規表現にマッチする場合
   if (!isMatch
     && regexArray.length > 0
@@ -81,14 +81,14 @@ export const advancedDefaultTemplate = async (blockUuid: BlockEntity["uuid"], pa
         const regex = new RegExp(r.split("::")[0])
         if (regex.test(pageName)) {
           isMatch = true
-          //rには「AAA:TemplateName」の形式で設定されている
+          //rには「AAA::TemplateName」の形式で設定されている
           matchedTemplate = r.split("::")[1]
           console.log("matchedTemplate", matchedTemplate)
           break
         }
       } else
         msgWarnInvalidFormat(r)
-  
+
 
   if (isMatch) {
     if (await logseq.App.existTemplate(matchedTemplate) === true)

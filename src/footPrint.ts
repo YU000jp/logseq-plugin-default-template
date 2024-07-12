@@ -60,13 +60,9 @@ export const footPrint = async (blockTree: { uuid: BlockEntity["uuid"]; content:
         }
         // ページプロパティに挿入する処理を実行
         await handlePageProperty({ pageName: currentPageEntity.originalName }, logseq.settings!.lastOpenedAtPropertyName as string, dateStr, t("lastOpenedAt property inserted.") + `\n\n[[${currentPageEntity.originalName}]]`)
-      }
-
-      else
+      } else
         console.warn("currentPageEntity is null.")
-    }
-
-    else
+    } else
       console.warn("Failed to get date string.")
   }, 5000)
 }
