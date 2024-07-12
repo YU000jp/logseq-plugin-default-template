@@ -44,7 +44,7 @@
 
 - 右上のツールバーの[`---`]を押して[`プラグイン`]を開き、マーケットプレイスを選択します。検索フィールドに `Default` と入力し、検索結果から選択してインストールします。
 
-  > ![スクリーンショット 2024-06-22 162128](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/54b4ad6a-ef65-4ef6-b6ba-cd628be241ea)
+  > ![プラグイン](https://github.com/user-attachments/assets/060145fd-f680-425d-aa66-6e682cc0a7f3)
 
 ### 使い方
 
