@@ -1,7 +1,8 @@
-# Logseq Plugin: Default Template
+# Logseq Plugin: Default Page Template / Footprint
 
-- Automatically apply a page template
-  > Logseq itself does not have the ability to automatically apply templates to new pages. (only journal templates). This plugin makes it possible. [From Logseq Discuss](https://discuss.logseq.com/t/extend-default-template-functionality/14452)
+1. Automatically apply a page template
+   > Logseq itself does not have the ability to automatically apply templates to new pages. (only journal templates). This plugin makes it possible. [From Logseq Discuss](https://discuss.logseq.com/t/extend-default-template-functionality/14452)
+1. Footprint Feature
 
 <div align="right">
 
@@ -25,6 +26,10 @@
    - Quickly insert a template by executing a shortcut while editing a block.
 1. Completion of journal template
    > Use this template if the journal template is not applied when journal single page is opened.
+1. 🖊️ Ability to insert creation date/time properties into the default template
+   - Optional functionality to automatically insert a property containing a creation date or time in a markdown file (page).
+1. 👣 **Footprint** Feature
+   - Optional feature to automatically insert a property in the markdown file (page) with the date and time of the last opening.
 
 ## Demo
 
@@ -41,6 +46,8 @@
   > ![スクリーンショット 2024-06-22 162128](https://github.com/YU000jp/logseq-plugin-default-template/assets/111847207/54b4ad6a-ef65-4ef6-b6ba-cd628be241ea)
 
 ### Usage
+
+- Configure various settings in the plugin settings.
 
 #### How to make an initial check
 
