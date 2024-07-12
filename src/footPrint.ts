@@ -42,27 +42,44 @@ export const footPrint = async (blockTree: { uuid: BlockEntity["uuid"]; content:
       const currentPageEntity = await logseq.Editor.getCurrentPage() as { originalName: PageEntity["originalName"] } | null
       if (currentPageEntity) {
         // ページの除外
-        if (
-          // logseq.settings!.lastOpenedAtExcludesPagesに複数行でページ名を記入すると、そのページは除外される
-          (logseq.settings!.lastOpenedAtExcludesPages as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPages as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPages as string).split("\n").includes(currentPageEntity.originalName))
-          // logseq.settings!.lastOpenedAtExcludesPagesStartWithに複数行で、ページ名の先頭部分を記入すると、そのページは除外される
-          || (logseq.settings!.lastOpenedAtExcludesPagesStartWith as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPagesStartWith as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPagesStartWith as string).split("\n").some((v: string) => currentPageEntity.originalName.startsWith(v)))
-          // logseq.settings!.lastOpenedAtExcludesPagesContainに複数行で、ページ名の一部を記入すると、そのページは除外される
-          || (logseq.settings!.lastOpenedAtExcludesPagesContain as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPagesContain as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPagesContain as string).split("\n").some((v: string) => currentPageEntity.originalName.includes(v)))
-          // logseq.settings!.lastOpenedAtExcludesPagesRegexに複数行で、正規表現を記入すると、そのページは除外される
-          || (logseq.settings!.lastOpenedAtExcludesPagesRegex as string !== ""
-            && logseq.settings!.lastOpenedAtExcludesPagesRegex as string !== currentPageEntity.originalName
-            && (logseq.settings!.lastOpenedAtExcludesPagesRegex as string).split("\n").some((v: string) => new RegExp(v).test(currentPageEntity.originalName)))
-        ) {
+        const isPageExcluded = (pageName: string) => {
+          if (
+            logseq.settings!.lastOpenedAtExcludesPages as string !== ""
+            && (logseq.settings!.lastOpenedAtExcludesPages as string) === pageName
+            || (logseq.settings!.lastOpenedAtExcludesPages as string).split("\n").some((v: string) => v === pageName)
+          )
+            return true
+          else
+            if (
+              logseq.settings!.lastOpenedAtExcludesPagesStartWith as string !== ""
+              && (logseq.settings!.lastOpenedAtExcludesPagesStartWith as string) === pageName
+              || (logseq.settings!.lastOpenedAtExcludesPagesStartWith as string).split("\n").some((v: string) => pageName.startsWith(v))
+            )
+              return true
+            else
+              if (
+                logseq.settings!.lastOpenedAtExcludesPagesContain as string !== ""
+                && (logseq.settings!.lastOpenedAtExcludesPagesContain as string) === pageName
+                || (logseq.settings!.lastOpenedAtExcludesPagesContain as string).split("\n").some((v: string) => pageName.includes(v))
+              )
+                return true
+              else
+                if (
+                  logseq.settings!.lastOpenedAtExcludesPagesRegex as string !== ""
+                  && (logseq.settings!.lastOpenedAtExcludesPagesRegex as string) === pageName
+                  || (logseq.settings!.lastOpenedAtExcludesPagesRegex as string).split("\n").some((v: string) => new RegExp(v).test(pageName))
+                )
+                  return true
+                else
+                  return false
+        }
+
+        if (isPageExcluded(currentPageEntity.originalName)) {
           console.log("This page is excluded.")
           return
         }
+
+
         // ページプロパティに挿入する処理を実行
         await handlePageProperty({ pageName: currentPageEntity.originalName }, logseq.settings!.lastOpenedAtPropertyName as string, dateStr, t("lastOpenedAt property inserted.") + `\n\n[[${currentPageEntity.originalName}]]`)
       } else
