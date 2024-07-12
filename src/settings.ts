@@ -1,10 +1,47 @@
 import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user'
 import { t } from 'logseq-l10n'
 
+
+const datePropertyFormats = [
+    "[[<% Today %>]]",
+    "[[<% Today %>]] <% Time %>",
+    "[[<% Today %>]] *<% Time %>*",
+    "[[<% Today %>]] **<% Time %>**",
+    "<% Today %>",
+    "<% Today %> <% Time %>",
+    "<% Today %> *<% Time %>*",
+    "<% Today %> **<% Time %>**",
+    "UTCDateTime",
+    "localizeDefault",
+    "journalDay",
+    "[[<% yyyy %>]]",
+    "[[<% yyyy %>]] journalDay",
+    "[[<% yyyy/MM %>]]",
+    "[[<% yyyy/MM %>]] journalDay",
+]
+
+
+// <% Today %> は、日付を表します。
+// <% Time %> は、時間を表します。
+// ブラケット [[ ]] は、リンクを表します。
+// UTCDateTime は、2024-06-23T12:34:56Z のようなUTC日時を表します。
+// localizeDefault は、ブラウザのロケールに基づいた日時を表します。
+// journalDay は、20240623 のような生の日付を表します。
+// [[<% yyyy %>]] は、年を表します。
+// [[<% yyyy/MM %>]] は、年月を表します。
+const propertyFormatDescriptions = () => `
+        ${t("The '<% Today %>' represents the date. Based on user date format.")}
+        ${t("The '<% Time %>' represents the time.")}
+        ${t("The '[[ ]]' represents the link.")}
+        ${t("The 'UTCDateTime' represents the UTC date and time like 2024-06-23T12:34:56Z.")}
+        ${t("The 'localizeDefault' represents the date and time based on the browser's locale.")} (Use 'Intl.DateTimeFormat()')
+        ${t("The 'journalDay' represents the raw date like 20240623.")}
+        ${t("[[<% yyyy %>]] represents the year.")}
+        ${t("[[<% yyyy/MM %>]] represents the year and month.")}
+        `
 /* user setting */
 // https://logseq.github.io/plugins/types/SettingSchemaDesc.html
-export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
-
+export const settingsTemplate = (graphName: string, preferredLanguage: string): SettingSchemaDesc[] => [
 
     /* ---- Common Settings ---- */
 
@@ -12,7 +49,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         key: "header0000",
         type: "heading",
         default: null,
-        title: `0. ${t("Common Settings")}`,
+        title: `0. 🖱️${t("Common Settings")}`,
         description: "",
     },
     { // 既存のページを開いたときに、ブロックが0の場合に、テンプレートを挿入するかどうか
@@ -36,7 +73,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         key: "header0010",
         type: "heading",
         default: null,
-        title: `1. ${t("Default Template Feature")}`,
+        title: `1. 🗒️${t("Default Template Feature")}`,
         // ページを開いたときに、一行目のブロックが空の場合に、テンプレートを挿入する。
         // この機能は、ジャーナルを除外します。
         description: `
@@ -59,7 +96,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         key: "header0011",
         type: "heading",
         default: null,
-        title: `1-a. ${t("Advanced Default Template Feature")}`,
+        title: `1-a. 📓${t("Advanced Default Template Feature")}`,
         // 特定の条件で、テンプレートを挿入する。
         // 複数にマッチした場合は、最初にマッチしたものが適用されます。
         // 空欄であれば、無効になります。
@@ -115,7 +152,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         key: "header0020",
         type: "heading",
         default: null,
-        title: `2. ${t("Command Pallet Items: Insert Template Shortcut")} (${t("The First")},${t("The Second")},${t("The Third")})`,
+        title: `2. ⌨️${t("Command Pallet Items: Insert Template Shortcut")} (${t("The First")},${t("The Second")},${t("The Third")})`,
         // キーマップでカスタムショートカットを登録。ブロック編集中にショートカットを押すとテンプレートが挿入される。
         // Command Pallet からも呼び出せます。
         description: `
@@ -152,7 +189,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         key: "header0030",
         type: "heading",
         default: null,
-        title: `3. ${t("Completion of journal template")}`,
+        title: `3. 📆${t("Completion of journal template")}`,
         // ジャーナルのシングルページを開いたときに、ジャーナルテンプレートが適用されない場合に、このテンプレートを使用します。
         // 注: ジャーナルテンプレートが設定されていない場合にも適用します。
         // 現在のジャーナル・テンプレートと同じに設定することをお勧めします。
@@ -173,15 +210,15 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
 
     // /* ---- Option 4. ---- */
 
-    { // 日時をもつページプロパティの挿入機能
+    { // 作成日時プロパティの挿入機能
         key: "header0040",
         type: "heading",
         default: null,
-        title: `4. ${t("Insert Date-Time property Feature")} 🆕🚧`,
-        // これは、マークダウンファイルに、日時をもつプロパティを挿入するための1つのオプション機能です。
+        // 4.  デフォルト・テンプレートに作成日または時間プロパティを挿入する機能
+        title: `4. 🖊️${t("Ability to insert creation date or time property into default template")} 🆕`,
+        // これは、マークダウンファイルに、作成日時をもつプロパティを自動挿入するためのオプション機能です。
         description: `
-        ${t("This is one optional feature to insert a property in the markdown file that has a date and time.")}
-        `,
+        ${t("This is an optional feature to automatically insert property with creation date or time in markdown files.")}`,
     },
 
     /* created */
@@ -192,7 +229,7 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
         // デフォルトテンプレートに作成日時プロパティを挿入する
         // このオプションは、デフォルトテンプレートに対して適用されます。
         // このオプションだけを使用するには、空のデフォルトテンプレートを設定してください。
-        title: t("Enable insert created property to Default Template"),
+        title: t("Enable"),
         // デフォルトテンプレートが呼び出された後に、そのページプロパティを挿入します。
         description: `
         ${t("Insert the page property after the default template is called.")}
@@ -203,100 +240,119 @@ export const settingsTemplate = (graphName: string): SettingSchemaDesc[] => [
     { // 作成日時プロパティの名称
         key: "createdAtPropertyName",
         type: "string",
-        default: "created",
+        default: preferredLanguage === "ja" ? "作成日" : "created",
         title: t("created Property Name"),
         // 通常のCreated-Atプロパティは、Logseqコアにより隠されるため使用できません。
         // 代わりに、このプロパティを使用して、作成日時を記録します。
         // プロパティ名称を変更することができます。
+        // プロパティ名に半角スペースは使用できません。
+        // 不具合を避けるため、なるべく単語のみで記述します。
         description: `
         ${t("The 'Created-At' property is hidden by the Logseq core and cannot be used.")}
         ${t("Instead, use this property to record the creation date and time.")}
         ${t("The property name can be changed.")}
-        `
+        ${t("Half-width spaces are not allowed in the property name.")}
+        ${t("To avoid problems, describe it with single words as much as possible.")}`
     },
     { // プロパティの形式の選択
         key: "createdAtPropertyFormat",
         type: "enum",
-        enumChoices: [
-            "[[<% Today %>]]",
-            "[[<% Today %>]] <% Time %>",
-            "[[<% Today %>]] *<% Time %>*",
-            "[[<% Today %>]] **<% Time %>**",
-            "<% Today %>",
-            "<% Today %> <% Time %>",
-            "<% Today %> *<% Time %>*",
-            "<% Today %> **<% Time %>**",
-            "UTCDateTime",
-            "localizeDefault",
-            "journalDay",
-        ],
+        enumChoices: datePropertyFormats,
         default: "[[<% Today %>]] *<% Time %>*",
         title: t("created Property Format"),
-        // <% Today %> は、日付を表します。
-        // <% Time %> は、時間を表します。
-        // UTCDateTime は、2024-06-23T12:34:56Z のようなUTC日時を表します。
-        // localizeDefault は、ブラウザのロケールに基づいた日時を表します。
-        // journalDay は、20240623 のような生の日付を表します。
-        description: `
-        ${t("The '<% Today %>' represents the date.")}
-        ${t("The '<% Time %>' represents the time.")}
-        ${t("The 'UTCDateTime' represents the UTC date and time like 2024-06-23T12:34:56Z.")}
-        ${t("The 'localizeDefault' represents the date and time based on the browser's locale.")} (Use 'Intl.DateTimeFormat()')
-        ${t("The 'journalDay' represents the raw date like 20240623.")}
-        `
+        description: propertyFormatDescriptions()
     },
     /* End created */
 
-    // /* last_opened_at */
-    // { // 最後に開いた時刻を記録するプロパティの挿入機能
-    //     key: "insertLastOpenTimeToDefault",
-    //     type: "boolean",
-    //     default: false,
-    //     // ページプロパティに最後に開いた時刻を挿入する
-    //     title: t("Enable insert 'last_opened_at' property to the page property"),
-    //     description: "",
-    // },
-    // { // ほかのページなどに移動したときに、時刻を更新するかどうか
-    //     key: "recordLastOpenTime",
-    //     type: "boolean",
-    //     default: false,
-    //     title: t("Enable update 'last_opened_at' property when moving to other pages"),
-    //     description: "",
-    // },
-    // { // 最後に開いた時刻プロパティの名称
-    //     key: "lastOpenedAtPropertyName",
-    //     type: "string",
-    //     default: "last_opened_at",
-    //     title: t("last_opened_at Property Name"),
-    //     description: "",
-    // },
-    // { // 最後に開いた時刻プロパティの形式の選択
-    //     key: "lastOpenedAtPropertyFormat",
-    //     type: "enum",
-    //     enumChoices: [
-    //         "[[<% Today %>]]",
-    //         "[[<% Today %>]] <% Time %>",
-    //         "[[<% Today %>]] *<% Time %>*",
-    //         "[[<% Today %>]] **<% Time %>**",
-    //         "<% Today %>",
-    //         "<% Today %> <% Time %>",
-    //         "<% Today %> *<% Time %>*",
-    //         "<% Today %> **<% Time %>**",
-    //         "UTCDateTime",
-    //         "localizeDefault",
-    //         "journalDay",
-    //     ],
-    //     default: "[[<% Today %>]] *<% Time %>*",
-    //     title: t("last_opened_at Property Format"),
-    //     description: `
-    //     ${t("The '<% Today %>' represents the date.")}
-    //     ${t("The '<% Time %>' represents the time.")}
-    //     ${t("The 'UTCDateTime' represents the UTC date and time like 2024-06-23T12:34:56Z.")}
-    //     ${t("The 'localizeDefault' represents the date and time based on the browser's locale.")} (Use 'Intl.DateTimeFormat()')
-    //     ${t("The 'journalDay' represents the raw date like 20240623.")}
-    //     `
-    // },
-    // /* End last_opened_at */
 
-    /* End Option 4. */
+
+    // /* ---- Option 5. ---- */
+
+    { // あしあと機能
+        key: "header0050",
+        type: "heading",
+        default: null,
+        // 4. あしあと機能
+        title: `5. 👣${t("Footprint Feature")} 🆕`,
+        // これは、マークダウンファイルに、最後に開いた日時をもつプロパティを自動挿入するためのオプション機能です。
+        // ジャーナル以外のページに適用されます。
+        // 念のため、予備のグラフを作成して、使い勝手を確かめてください。
+        description: `
+        ${t("Insert 'lastOpenedAt' property to the page property")}
+
+        ${t("This is an optional feature to automatically insert property with last opened date and time in markdown files.")}
+        ${t("It is applied to pages other than journals.")}
+        
+        ${t("For safety, create a spare graph and check the usability.")}`,
+    },
+    /* lastOpenedAt */
+    { // 最後に開いた時刻を記録するプロパティの挿入機能
+        key: "footPrint",
+        type: "boolean",
+        default: false,
+        // ページプロパティに最後に開いた時刻を挿入する
+        title: t("Enable"),
+        // ボタンを使ってトグルできます！足跡を残したくないときに。
+        // そでにこのプロパティが存在する場合は、30秒後に更新されます。
+        description: `
+        👣${t("It can be toggled via the toolbar button! For when you don't want to leave a footprint.")}
+        ${t("If this property exists, it will be updated 30 seconds later.")}`,
+    },
+    { // 最後に開いた時刻プロパティの名称
+        key: "lastOpenedAtPropertyName",
+        type: "string",
+        default: preferredLanguage === "ja" ? "最後に開いた日" : "last",
+        title: t("lastOpenedAt Property Name"),
+        // プロパティ名に半角スペースや「:」は使用できません。
+        // 不具合を避けるため、なるべく単語のみで記述します。
+        description: `
+        ${t("Half-width spaces or ':' are not allowed in the property name.")}
+        ${t("To avoid problems, describe it with single words as much as possible.")}`,
+    },
+    { // 最後に開いた時刻プロパティの形式の選択
+        key: "lastOpenedAtPropertyFormat",
+        type: "enum",
+        enumChoices: datePropertyFormats,
+        default: "[[<% Today %>]] *<% Time %>*",
+        title: t("lastOpenedAt Property Format"),
+        description: propertyFormatDescriptions()
+    },
+    { // 除外するページ一覧
+        key: "lastOpenedAtExcludesPages",
+        type: "string",
+        default: "",
+        // 除外ページのその名前
+        title: t("List of pages to exclude"),
+        inputAs: "textarea",
+        // ページ名を入力
+        // 複数指定する場合は、改行区切りで記述してください。
+        // ページメニューから、除外リストに追加可能です。
+        // プロパティの挿入直後に、そのプロパティを削除したい場合は、元に戻すショートカットキーである[Ctrl(Cmd)+Z]を押します。
+        description: `
+        ${t("Enter page names.")}
+        ${t("Multiple specifications can be made by line breaks.")}
+        ${t("It can be added to the exclusion list via the page menu.")}
+        ${t("If you want to delete a property immediately after inserting it, press the undo shortcut key [Ctrl(Cmd)+Z].")}
+        `
+    },
+    {// 除外するページ名の特徴 (先頭にマッチする場合)
+        key: "lastOpenedAtExcludesPagesStartWith",
+        type: "string",
+        default: "",
+        title: t("Start With"),
+        inputAs: "textarea",
+        description: `${t("Match if it starts with a specific string (e.g. hierarchy[AAA/]).")}`,
+    },
+    {// 特定の文字列を含む場合にマッチします。ほかの指定方法よりも強力ですので注意してください。
+        key: "lastOpenedAtExcludesPagesContain",
+        type: "string",
+        default: "",
+        title: t("Contain"),
+        inputAs: "textarea",
+        description: `
+        ${t("Match if it contains a specific string.")}
+        ⚠️${t("Be careful as it is more powerful than other specifications.")}`,
+    },
+    /* End lastOpenedAt */
+
 ]

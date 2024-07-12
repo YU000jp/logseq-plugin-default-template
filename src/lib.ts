@@ -46,7 +46,7 @@ export const insertTemplateAndRemoveBlock = async (
 
 
 // ページプロパティを挿入する処理
-const handlePageProperty = async (
+export const handlePageProperty = async (
   flag: { journal?: boolean; pageName?: string },
   propertyName: string,
   dateStr: string,
@@ -56,7 +56,7 @@ const handlePageProperty = async (
   const blocks = await logseq.Editor.getPageBlocksTree(flag.pageName as string) as { uuid: BlockEntity["uuid"]; content: BlockEntity["content"] }[] | null
   if (blocks) {
     if (blocks[0].content.includes(":: "))
-      await logseq.Editor.updateBlock(blocks[0].uuid, blocks[0].content + `\n${propertyName}:: ${dateStr}\n`)
+      await logseq.Editor.updateBlock(blocks[0].uuid, `${propertyName}:: ${dateStr}\n` + blocks[0].content)
     else {
       //ページプロパティを含まない場合は、前にブロックを挿入する
       await logseq.Editor.insertBlock(blocks[0].uuid, `${propertyName}:: ${dateStr}\n`, { before: true, sibling: true, isPageBlock: true })
@@ -69,7 +69,7 @@ const handlePageProperty = async (
 }
 
 // 日付フォーマットの処理
-const formatDateString = (
+export const formatDateString = (
   configStr: string,
   today: Date,
   preferredDateFormat: string
@@ -90,7 +90,12 @@ const formatDateString = (
   "<% Today %> **<% Time %>**" |
   "UTCDateTime" |
   "localizeDefault" |
-  "journalDay") {
+  "journalDay" |
+  "[[<% yyyy %>]]" |
+  "[[<% yyyy %>]] journalDay" |
+  "[[<% yyyy/MM %>]]" |
+  "[[<% yyyy/MM %>]] journalDay"
+  ) {
     case "[[<% Today %>]]":
       return `[[${format(today, preferredDateFormat)}]]`
       break
@@ -123,6 +128,18 @@ const formatDateString = (
       break
     case "journalDay":
       return format(today, "yyyyMMdd")
+      break
+    case "[[<% yyyy %>]]":
+      return `[[${format(today, "yyyy")}]]`
+      break
+    case "[[<% yyyy %>]] journalDay":
+      return `[[${format(today, "yyyy")}]] ${format(today, "yyyyMMdd")}`
+      break
+    case "[[<% yyyy/MM %>]]":
+      return `[[${format(today, "yyyy/MM")}]]`
+      break
+    case "[[<% yyyy/MM %>]] journalDay":
+      return `[[${format(today, "yyyy/MM")}]] ${format(today, "yyyyMMdd")}`
       break
     default:
       return ""
