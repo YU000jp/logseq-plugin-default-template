@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "Det samsvarer også hvis du bruker en emoji [🌞] i sidetittelen.",
   "It can be added to the exclusion list via the page menu.": "Du kan legge den til ekskluderingslisten fra sidemenyen.",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "Du kan bytte mellom dem med verktøylinjeknappene! For når du ikke vil etterlate et fotavtrykk.",
-  "It is applied to pages other than journals.": "Det gjelder også andre sider enn tidsskrifter.",
+  "Applies to non-journal pages.": "Det gjelder også andre sider enn tidsskrifter.",
   "It is recommended to set the same as current journal template.": "Det anbefales at du setter den til å være den samme som gjeldende journalmal.",
   "Journal": "tidsskrift",
   "List of pages to exclude": "Liste over ekskluderte sider",

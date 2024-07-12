@@ -281,7 +281,7 @@ export const settingsTemplate = (graphName: string, preferredLanguage: string): 
         ${t("Insert 'lastOpenedAt' property to the page property")}
 
         ${t("This is an optional feature to automatically insert property with last opened date and time in markdown files.")}
-        ${t("It is applied to pages other than journals.")}
+        ${t("Applies to non-journal pages.")}
         
         ${t("For safety, create a spare graph and check the usability.")}`,
     },

@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "Sayfa başlığında bir emoji [🌞] kullanırsanız da eşleşir.",
   "It can be added to the exclusion list via the page menu.": "Sayfa menüsünden dışlama listesine ekleyebilirsiniz.",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "Araç çubuğu düğmeleri ile aralarında geçiş yapabilirsiniz! Ayak izi bırakmak istemediğiniz zamanlar için.",
-  "It is applied to pages other than journals.": "Dergiler dışındaki sayfalar için de geçerlidir.",
+  "Applies to non-journal pages.": "Dergiler dışındaki sayfalar için de geçerlidir.",
   "It is recommended to set the same as current journal template.": "Geçerli dergi şablonuyla aynı olacak şekilde ayarlamanız önerilir.",
   "Journal": "günlük",
   "List of pages to exclude": "Hariç tutulan sayfaların listesi",

@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "페이지 제목에 이모티콘 [🌞]을 사용하는 경우에도 일치합니다.",
   "It can be added to the exclusion list via the page menu.": "페이지 메뉴에서 제외 목록에 추가할 수 있습니다.",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "도구 모음 버튼으로 전환할 수 있습니다! 발자국을 남기고 싶지 않을 때를 위해.",
-  "It is applied to pages other than journals.": "저널 이외의 페이지에도 적용됩니다.",
+  "Applies to non-journal pages.": "저널 이외의 페이지에도 적용됩니다.",
   "It is recommended to set the same as current journal template.": "현재 분개장 템플리트와 동일하게 설정하는 것이 좋습니다.",
   "Journal": "일지",
   "List of pages to exclude": "제외된 페이지 목록",

@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "Es passt auch, wenn Sie ein Emoji [🌞] im Seitentitel verwenden.",
   "It can be added to the exclusion list via the page menu.": "Sie können es über das Seitenmenü zur Ausschlussliste hinzufügen.",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "Sie können mit den Schaltflächen in der Symbolleiste zwischen ihnen wechseln! Wenn Sie keinen Fußabdruck hinterlassen möchten.",
-  "It is applied to pages other than journals.": "Sie gilt auch für andere Seiten als Zeitschriften.",
+  "Applies to non-journal pages.": "Sie gilt auch für andere Seiten als Zeitschriften.",
   "It is recommended to set the same as current journal template.": "Es wird empfohlen, dass Sie festlegen, dass sie mit der aktuellen Journalvorlage identisch ist.",
   "Journal": "Tagebuch",
   "List of pages to exclude": "Liste der ausgeschlossenen Seiten",

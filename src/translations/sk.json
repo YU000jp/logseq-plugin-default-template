@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "Zhoduje sa aj v prípade, že v názve stránky použijete emoji [🌞].",
   "It can be added to the exclusion list via the page menu.": "Môžete ho pridať do zoznamu vylúčení z ponuky stránok.",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "Môžete medzi nimi prepínať pomocou tlačidiel na paneli nástrojov! Keď nechcete zanechať stopu.",
-  "It is applied to pages other than journals.": "Vzťahuje sa aj na iné strany ako časopisy.",
+  "Applies to non-journal pages.": "Vzťahuje sa aj na iné strany ako časopisy.",
   "It is recommended to set the same as current journal template.": "Odporúča sa nastaviť ho tak, aby bol rovnaký ako aktuálna šablóna denníka.",
   "Journal": "denník",
   "List of pages to exclude": "Zoznam vylúčených strán",

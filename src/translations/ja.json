@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "ページタイトルに絵文字[🌞]を使用する場合にもマッチします。",
   "It can be added to the exclusion list via the page menu.": "ページメニューから除外リストに追加できます。",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "ツールバーボタンで切り替えることができます! 足跡を残したくないときのために。",
-  "It is applied to pages other than journals.": "日誌以外のページにも適用されます。",
+  "Applies to non-journal pages.": "日誌以外のページに適用されます。",
   "It is recommended to set the same as current journal template.": "現在のジャーナル・テンプレートと同じに設定することをお勧めします。",
   "Journal": "ジャーナル",
   "List of pages to exclude": "除外するページのリスト",

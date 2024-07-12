@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "如果您在頁面標題中使用表情符號 [🌞]，它也會匹配。",
   "It can be added to the exclusion list via the page menu.": "您可以從頁面功能表將其添加到排除清單中。",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "您可以使用工具列按鈕在它們之間切換！ 當你不想留下足跡時。",
-  "It is applied to pages other than journals.": "它也適用於期刊以外的頁面。",
+  "Applies to non-journal pages.": "它也適用於期刊以外的頁面。",
   "It is recommended to set the same as current journal template.": "建議您將其設置為與當前日記帳範本相同。",
   "Journal": "雜誌",
   "List of pages to exclude": "排除的頁面清單",

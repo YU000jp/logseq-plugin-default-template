@@ -36,7 +36,7 @@
   "It also matches if use Emoji[🌞] in the page title.": "Het komt ook overeen als je een emoji [🌞] in de paginatitel gebruikt.",
   "It can be added to the exclusion list via the page menu.": "U kunt het toevoegen aan de uitsluitingslijst vanuit het paginamenu.",
   "It can be toggled via the toolbar button! For when you don't want to leave a footprint.": "Je kunt ertussen schakelen met de werkbalkknoppen! Voor als je geen voetafdruk wilt achterlaten.",
-  "It is applied to pages other than journals.": "Het is ook van toepassing op andere pagina's dan tijdschriften.",
+  "Applies to non-journal pages.": "Het is ook van toepassing op andere pagina's dan tijdschriften.",
   "It is recommended to set the same as current journal template.": "Het wordt aanbevolen om deze zo in te stellen dat deze hetzelfde is als de huidige journaalsjabloon.",
   "Journal": "dagboek",
   "List of pages to exclude": "Lijst met uitgesloten pagina's",
