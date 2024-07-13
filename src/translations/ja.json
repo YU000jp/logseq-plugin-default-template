@@ -3,7 +3,7 @@
   "Add to exclusion list of lastOpenedAt": "lastOpenedAt の除外リストに追加",
   "Added to exclusion list of lastOpenedAt.": "lastOpenedAtの除外リストに追加されました。",
   "Advanced Default Template Feature": "高度なデフォルトテンプレート機能",
-  "Applies to non-journal pages.": "日誌以外のページに適用されます。",
+  "Applies to non-journal pages.": "日誌を除くページに適用されます。",
   "Be careful as it is more powerful than other specifications.": "他の仕様よりも強力ですので注意が必要です。",
   "Block is not selected.": "[ブロック] が選択されていません。",
   "Call from the Command Pallet or press the shortcut key while editing the block to insert the template.": "コマンドパレットから呼び出すか、ブロックの編集中にショートカットキーを押して、テンプレートを挿入します。",
