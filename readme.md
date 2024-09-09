@@ -5,6 +5,9 @@
 1. Footprint Feature
    - Property the date and time the page was last opened
 
+> [!WARNING]
+This plugin does not work with Logseq db version now.
+
 <div align="right">
 
 [English](https://github.com/YU000jp/logseq-plugin-default-template) | [日本語](https://github.com/YU000jp/logseq-plugin-default-template/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-default-template)](https://github.com/YU000jp/logseq-plugin-default-template/releases)
