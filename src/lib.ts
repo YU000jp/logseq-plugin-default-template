@@ -1,6 +1,7 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin"
 import { format } from "date-fns"
 import { t } from "logseq-l10n"
+import { booleanLogseqVersionMd } from "."
 
 
 export const insertTemplateAndRemoveBlock = async (
@@ -27,7 +28,7 @@ export const insertTemplateAndRemoveBlock = async (
       // ユーザー設定から日付フォーマットを取得
       const { preferredDateFormat } = await logseq.App.getUserConfigs() as { preferredDateFormat: string }
       // ページタグにcreatedプロパティを挿入する処理
-      if (logseq.settings!.insertCreateDateToDefault === true)
+      if (logseq.settings!.insertCreateDateToDefault === true && booleanLogseqVersionMd() === true)
         setTimeout(async () => {
           const dateStr: string = formatDateString(logseq.settings!.createdAtPropertyFormat as string, new Date(), preferredDateFormat)
           console.log("dateStr", dateStr)

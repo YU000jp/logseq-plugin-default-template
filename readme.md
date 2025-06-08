@@ -5,8 +5,8 @@
 1. Footprint Feature
    - Property the date and time the page was last opened
 
-> [!WARNING]
-This plugin does not work with Logseq db version now.
+> [!NOTE]
+This plugin works in Logseq db model. (file-based graph only)
 
 <div align="right">
 
@@ -30,10 +30,11 @@ This plugin does not work with Logseq db version now.
    - Quickly insert a template by executing a shortcut while editing a block.
 1. Completion of journal template
    > Use this template if the journal template is not applied when journal single page is opened.
-1. 🖊️ Ability to insert creation date/time properties into the default template
-   - Optional functionality to automatically insert a property containing a creation date or time in a markdown file (page).
-1. 👣 **Footprint** Feature
-   - Optional feature to automatically insert a property in the markdown file (page) with the date and time of the last opening.
+### ⚠️**Logseq File-based Model only**
+   1. 🖊️ Ability to insert creation date/time properties into the default template
+      - Optional functionality to automatically insert a property containing a creation date or time in a markdown file (page).
+   1. 👣 **Footprint** Feature
+      - Optional feature to automatically insert a property in the markdown file (page) with the date and time of the last opening.
 
 ## Demo
 

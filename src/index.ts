@@ -1,5 +1,5 @@
 import '@logseq/libs' //https://plugins-doc.logseq.com/
-import { AppGraphInfo, BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
+import { AppGraphInfo, AppInfo, BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
 import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import { advancedDefaultTemplate } from './advancedDefaultTemplate'
 import { addCommandPaletteCommands } from './commands'
@@ -30,10 +30,48 @@ export const getCurrentGraph = async (): Promise<string> => {
 // 処理中フラグ
 let processing = false
 
+let logseqVersion: string = "" //バージョンチェック用
+let logseqVersionMd: boolean = false //バージョンチェック用
+let logseqDbGraph: boolean = false
+// export const getLogseqVersion = () => logseqVersion //バージョンチェック用
+export const booleanLogseqVersionMd = () => logseqVersionMd //バージョンチェック用
+export const booleanDbGraph = () => logseqDbGraph //バージョンチェック用
+
 
 /* main */
 const main = async () => {
 
+  // バージョンチェック
+  logseqVersionMd = await checkLogseqVersion()
+  // console.log("logseq version: ", logseqVersion)
+  // console.log("logseq version is MD model: ", logseqVersionMd)
+  // 100ms待つ
+  await new Promise(resolve => setTimeout(resolve, 100))
+
+  // if (logseqVersionMd === false) {
+  //   // Logseq ver 0.10.*以下にしか対応していない
+  //   logseq.UI.showMsg("The ’Default Page Template’ plugin only supports Logseq ver 0.10.* and below.", "warning", { timeout: 5000 })
+  //   return
+  // }
+
+  // // DBグラフチェック
+  logseqDbGraph = await checkLogseqDbGraph()
+  if (logseqDbGraph === true) {
+    // DBグラフには対応していない
+    return showDbGraphIncompatibilityMsg()
+  }
+
+  //100ms待つ
+  await new Promise(resolve => setTimeout(resolve, 100))
+
+  logseq.App.onCurrentGraphChanged(async () => {
+    logseqDbGraph = await checkLogseqDbGraph()
+    if (logseqDbGraph === true)
+      // DBグラフには対応していない
+      return showDbGraphIncompatibilityMsg()
+    else
+      loadByGraph(logseqVersionMd) // DBグラフでない場合は、グラフ変更時に設定を読み込む
+  })
   // l10n
   await l10nSetup({ builtinTranslations: { ja } })
 
@@ -102,11 +140,11 @@ const main = async () => {
 
   // graph変更時の処理
   logseq.App.onCurrentGraphChanged(async () => {
-    await loadByGraph()
+    await loadByGraph(logseqVersionMd)
   })
 
   // 初回読み込み
-  await loadByGraph()
+  await loadByGraph(logseqVersionMd)
 
 
   //ページ読み込み時に実行コールバック
@@ -122,7 +160,8 @@ const main = async () => {
 
 
   /* For Last Opened At Property */
-  toolbarButtonForLastOpenedAt() // ツールバーにボタンを追加
+  if (logseqVersionMd === true)
+    toolbarButtonForLastOpenedAt() // ツールバーにボタンを追加
   // クリックイベント
   logseq.provideModel({
     // keyLastOpenedAtボタン
@@ -149,7 +188,8 @@ const main = async () => {
     ) msgWarn(t("The property name cannot contain half-width spaces or \":\"."), "")
   })
   // ページメニューコンテキストに、メニューを追加
-  logseq.App.registerPageMenuItem(`⚓ ${t("Add to exclusion list of lastOpenedAt")}`, async () => pageMenuClickAddToExclusionList())
+  if (logseqVersionMd === true)
+    logseq.App.registerPageMenuItem(`⚓ ${t("Add to exclusion list of lastOpenedAt")}`, async () => pageMenuClickAddToExclusionList())
   /* end For Last Opened At Property */
 
 
@@ -261,7 +301,7 @@ const whenCreateNewPage = () => {
         // 複数行の場合は何も処理しない
 
         // ページタグに最後に開いた時刻を記録するプロパティの挿入処理 (あしあと機能 footPrint)
-        if (logseq.settings!.footPrint === true
+        if (logseq.settings!.footPrint === true && logseqVersionMd === true // MDモデルであることを確認
           //ジャーナルかどうかDOMをチェック
           && (parent.document.querySelector("div.is-journals") as Node ? true
             : (parent.document.getElementById("journals") as Node ? true : false)) === false)
@@ -303,13 +343,13 @@ export const defaultTemplate = async (blockUuid: BlockEntity["uuid"], pageName: 
 }
 
 
-const loadByGraph = async () => {
+const loadByGraph = async (logseqVersionMd: boolean) => {
   const currentGraphName = await getCurrentGraph()
   if (currentGraphName === "")
     return // demo graphの場合は実行しない
   else {
     const { preferredLanguage } = await logseq.App.getUserConfigs() as { preferredLanguage: string }
-    logseq.useSettingsSchema(settingsTemplate(currentGraphName, preferredLanguage)) /* user settings */
+    logseq.useSettingsSchema(settingsTemplate(currentGraphName, preferredLanguage, logseqVersionMd)) /* user settings */
     setTimeout(() => {
       if (!logseq.settings) logseq.showSettingsUI()
     }, 300)
@@ -332,6 +372,41 @@ const loadByGraph = async () => {
       logseq.updateSettings({ notice: "2024071202" })
     }
   }
+}
+
+// MDモデルかどうかのチェック DBモデルはfalse
+const checkLogseqVersion = async (): Promise<boolean> => {
+  const logseqInfo = (await logseq.App.getInfo("version")) as AppInfo | any
+  //  0.11.0もしくは0.11.0-alpha+nightly.20250427のような形式なので、先頭の3つの数値(1桁、2桁、2桁)を正規表現で取得する
+  const version = logseqInfo.match(/(\d+)\.(\d+)\.(\d+)/)
+  if (version) {
+    logseqVersion = version[0] //バージョンを取得
+    // console.log("logseq version: ", logseqVersion)
+
+    // もし バージョンが0.10.*系やそれ以下ならば、logseqVersionMdをtrueにする
+    if (logseqVersion.match(/0\.([0-9]|10)\.\d+/)) {
+      logseqVersionMd = true
+      // console.log("logseq version is 0.10.* or lower")
+      return true
+    } else logseqVersionMd = false
+  } else logseqVersion = "0.0.0"
+  return false
+}
+// DBグラフかどうかのチェック DBグラフだけtrue
+const checkLogseqDbGraph = async (): Promise<boolean> => {
+  const element = parent.document.querySelector(
+    "div.block-tags",
+  ) as HTMLDivElement | null // ページ内にClassタグが存在する  WARN:: ※DOM変更の可能性に注意
+  if (element) {
+    logseqDbGraph = true
+    return true
+  } else logseqDbGraph = false
+  return false
+}
+
+const showDbGraphIncompatibilityMsg = () => {
+  logseq.UI.showMsg("The ’Default Page Template’ plugin not supports Logseq DB graph.", "warning", { timeout: 5000 })
+  return
 }
 
 logseq.ready(main).catch(console.error)
