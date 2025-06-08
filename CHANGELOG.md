@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.3.0...v1.4.0) (2025-06-08)
+
+
+### Features
+
+* Some optional features are not available for Logseq MD model (file-based graph) [#6](https://github.com/YU000jp/logseq-plugin-default-template/issues/6) ([3b4a04c](https://github.com/YU000jp/logseq-plugin-default-template/commit/3b4a04c3892ac71c1c6a8646c39712d2f0caa6d9))
+
 # [1.3.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.2.0...v1.3.0) (2024-07-12)
 
 
