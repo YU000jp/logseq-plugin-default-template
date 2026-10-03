@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.4.0...v1.4.1) (2026-10-03)
+
+
+### Bug Fixes
+
+* DBグラフ検出を公式API checkCurrentIsDbGraph() に置き換え ([a9df28f](https://github.com/YU000jp/logseq-plugin-default-template/commit/a9df28fd5614aba199ec66aa4b0c361bf727aec7))
+
 # [1.4.0](https://github.com/YU000jp/logseq-plugin-default-template/compare/v1.3.0...v1.4.0) (2025-06-08)
 
 
